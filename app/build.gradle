@@ -36,6 +36,9 @@ android {
         // See more at https://developer.android.com/topic/libraries/view-binding
         viewBinding true
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
