@@ -1,6 +1,6 @@
 package com.example.baseandroidapp.di
 
-import androidx.viewbinding.BuildConfig
+import com.example.baseandroidapp.BuildConfig
 import com.example.baseandroidapp.core.data.VodRepository
 import com.example.baseandroidapp.core.data.VodRepositoryImpl
 import dagger.Module
