@@ -34,6 +34,31 @@ class VodRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun getVodCo(request: VodRequest): Vod {
+        val data = vodService.vodCo(request.id).data
+        return Vod(
+            id = data.id,
+            title = data.streamUrl,
+            description = data.teaserStartTime.toString(),
+            imageUrl = data.thumbnailUrl
+        )
+    }
+
+    override suspend fun getVodListCo(): List<Vod> {
+        val list = vodService.vodListCo().list
+
+        return list.vodList.map {
+            Vod(
+                id = it.id,
+                title = it.streamUrl,
+                description = it.teaserStartTime.toString(),
+                imageUrl = it.thumbnailUrl
+            )
+        }
+    }
+
+
+
 
 //    override fun getVod(request: VodRequest): Vod {
 //        TODO("Not yet implemented")

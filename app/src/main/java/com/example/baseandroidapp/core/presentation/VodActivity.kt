@@ -3,6 +3,7 @@ package com.example.baseandroidapp.core.presentation
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -34,7 +35,9 @@ class VodActivity : AppCompatActivity() {
             }
         }
 
-        vodViewModel.loadVodList()
+//        vodViewModel.loadVodList()
+        vodViewModel.loadVodListCo()
+        Toast.makeText(this, "using coroutine", Toast.LENGTH_SHORT).show()
 
         vodViewModel.vodList.observe(this){
             renderMoviesList(it)
