@@ -5,7 +5,7 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
-abstract class SingleUseCase<R, T> : UseCase() {
+abstract class SingleRxUseCase<R, T> : RxUseCase() {
 
 //    internal abstract fun buildUseCaseSingle(): Single<Response<T>>
     internal abstract fun buildUseCaseSingle(): Single<T>
