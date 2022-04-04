@@ -30,13 +30,13 @@ class VodActivity : AppCompatActivity() {
         recyclerView.adapter = vodAdapter.apply {
             itemClickListener = {
                 val intent = Intent(this@VodActivity, VodDetailActivity::class.java)
-                intent.putExtra("vod", it.id)
+                intent.putExtra("vod", it)
                 startActivity(intent)
             }
         }
 
-//        vodViewModel.loadVodList()
-        vodViewModel.loadVodListCo()
+        vodViewModel.loadVodList()
+//        vodViewModel.loadVodListCo()
         Toast.makeText(this, "using coroutine", Toast.LENGTH_SHORT).show()
 
         vodViewModel.vodList.observe(this){

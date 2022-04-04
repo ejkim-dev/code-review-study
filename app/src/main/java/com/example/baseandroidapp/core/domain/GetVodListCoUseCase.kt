@@ -2,8 +2,6 @@ package com.example.baseandroidapp.core.domain
 
 import com.example.baseandroidapp.core.data.*
 import com.example.baseandroidapp.core.interactor.CoUseCase
-import com.example.baseandroidapp.core.interactor.SingleUseCase
-import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
 import javax.inject.Inject
 

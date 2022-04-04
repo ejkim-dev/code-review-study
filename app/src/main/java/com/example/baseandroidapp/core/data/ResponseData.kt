@@ -22,6 +22,7 @@ open class DefaultResponse {
 
     @SerializedName("errKey")
     var errKey: String? = null
+
     constructor()
 
     constructor(code: Int, msg: String?) {
@@ -33,7 +34,7 @@ open class DefaultResponse {
 
 data class VodResponse(
     @SerializedName("data")
-    val data: VodEntity
+    val data: VodDetailEntity
 ) : DefaultResponse()
 
 data class VodListResponse(
@@ -43,5 +44,55 @@ data class VodListResponse(
 
 data class TutorialListContents(
     @SerializedName("content")
-    val vodList: ArrayList<VodEntity>
+    val vodList: List<VodEntity>
 )
+
+
+// response wrapper test
+sealed class DefaultRes<T>(
+    @SerializedName("code")
+    @Expose
+    var code: Int = -1,
+
+    @SerializedName("msg")
+    @Expose
+    var msg: String? = null,
+
+    @SerializedName("success")
+    @Expose
+    var success: Boolean = false,
+
+    @SerializedName("title")
+    @Expose
+    var title: String? = null,
+
+    @SerializedName("errKey")
+    var errKey: String? = null
+) {
+
+    fun isSuccessful() = success
+
+    class SingleResult<T>(
+        @SerializedName("data")
+        val data: T
+    ) : DefaultRes<T>()
+
+    class ListResult<T>(
+        @SerializedName("list")
+        val list: T
+    ) : DefaultRes<T>()
+
+    class PageResult<T>(
+        @SerializedName("page")
+        val page: PageObject<T>
+    ) : DefaultRes<T>()
+
+}
+
+
+class PageObject<T>(
+    val content: T
+)
+
+
+
