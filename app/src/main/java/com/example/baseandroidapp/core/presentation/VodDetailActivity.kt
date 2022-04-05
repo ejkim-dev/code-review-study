@@ -1,15 +1,14 @@
 package com.example.baseandroidapp.core.presentation
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.baseandroidapp.R
 import com.example.baseandroidapp.databinding.ActivityVodDetailBinding
-import com.example.baseandroidapp.databinding.ItemVodBinding
 import com.example.baseandroidapp.util.DLog
 import com.example.baseandroidapp.util.extension.loadFromUrl
+import com.example.presentation.view.VodView
+import com.example.presentation.viewmodel.VodDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

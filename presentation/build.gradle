@@ -1,22 +1,22 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id 'kotlin-parcelize'
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.baseandroidapp"
         minSdk 21
         targetSdk 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -32,14 +32,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        // View binding allows efficient, type-safe view access
-        // See more at https://developer.android.com/topic/libraries/view-binding
-        viewBinding true
-    }
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
@@ -52,27 +44,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation project(path: ':domain')
-    implementation project(path: ':data')
-    implementation project(path: ':presentation')
 
-    //glide
-    def glide_version = "4.12.0"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    implementation "com.github.bumptech.glide:annotations:$glide_version"
-    kapt "com.github.bumptech.glide:compiler:$glide_version"
-
-
-    //by viewModels
-    implementation 'androidx.activity:activity-ktx:1.1.0'
-    implementation 'androidx.fragment:fragment-ktx:1.2.5'
+    // hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
     //coroutines
     def coroutine_version = "1.6.0"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version")
 
-
-    // hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
 
 }

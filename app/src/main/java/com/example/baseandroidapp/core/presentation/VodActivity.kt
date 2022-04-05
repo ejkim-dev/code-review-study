@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.baseandroidapp.R
+import com.example.presentation.view.VodView
+import com.example.presentation.viewmodel.VodViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
