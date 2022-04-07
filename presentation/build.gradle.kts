@@ -40,24 +40,23 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(Dependencies.KTX.CORE)
+    implementation(Dependencies.Libraries.appCompat)
+    implementation(Dependencies.Libraries.material)
+    testImplementation(Dependencies.Test.JUNIT)
+    androidTestImplementation(Dependencies.AndroidTest.JUNIT)
+    androidTestImplementation(Dependencies.AndroidTest.ESPRESSO_CORE)
 
     implementation(project(":domain"))
 
     // hilt
-    val hilt_version = "2.40"
-    implementation("com.google.dagger:hilt-android:$hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+    implementation(Dependencies.Libraries.hilt)
+    kapt(Dependencies.Libraries.hiltCompiler)
 
-    //coroutines
-    val coroutine_version = "1.6.0"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version")
+    // coroutines
+    implementation(Dependencies.Libraries.coroutine)
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    // viewModel
+    implementation(Dependencies.Libraries.viewModel)
 
 }

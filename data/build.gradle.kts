@@ -38,30 +38,22 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(Dependencies.KTX.CORE)
+    implementation(Dependencies.Libraries.appCompat)
+    implementation(Dependencies.Libraries.material)
+    testImplementation(Dependencies.Test.JUNIT)
+    androidTestImplementation(Dependencies.AndroidTest.JUNIT)
+    androidTestImplementation(Dependencies.AndroidTest.ESPRESSO_CORE)
 
     implementation(project(":domain"))
 
     // hilt
-    val hilt_version = "2.40"
-    implementation("com.google.dagger:hilt-android:$hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+    implementation(Dependencies.Libraries.hilt)
+    kapt(Dependencies.Libraries.hiltCompiler)
 
     // Retrofit2
-    val retrofit_version = "2.9.0"
-    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
+    implementation(Dependencies.Libraries.retrofit)
 
     //okhttp3 logging interceptor
-    val okhttp3_logging_version = "4.9.0"
-    implementation("com.squareup.okhttp3:logging-interceptor:$okhttp3_logging_version")
-
-    implementation("com.google.code.gson:gson:2.8.6")               //gson
-    implementation("com.squareup.retrofit2:converter-scalars:2.1.0")    //JSON Parsing
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")        //JSON Parsing
-
+    implementation(Dependencies.Libraries.okHttpLoggingInterceptor)
 }

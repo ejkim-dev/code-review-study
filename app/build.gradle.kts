@@ -1,13 +1,14 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-parcelize")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
-    id("kotlin-parcelize")
 }
 
 android {
     compileSdk = 31
+
     defaultConfig {
         applicationId = "com.example.baseandroidapp"
         minSdk = 21
@@ -45,37 +46,30 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(Dependencies.KTX.CORE)
+    implementation(Dependencies.Libraries.appCompat)
+    implementation(Dependencies.Libraries.material)
+    testImplementation(Dependencies.Test.JUNIT)
+    androidTestImplementation(Dependencies.AndroidTest.JUNIT)
+    androidTestImplementation(Dependencies.AndroidTest.ESPRESSO_CORE)
 
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":presentation"))
 
     //glide
-    val glide_version = "4.12.0"
-    implementation("com.github.bumptech.glide:glide:$glide_version")
-    implementation("com.github.bumptech.glide:annotations:$glide_version")
-    kapt("com.github.bumptech.glide:compiler:$glide_version")
-
+    implementation(Dependencies.Libraries.glide)
+    implementation(Dependencies.Libraries.glideAnnotation)
+    kapt(Dependencies.Libraries.glideCompiler)
 
     //by viewModels
-    implementation("androidx.activity:activity-ktx:1.1.0")
-    implementation("androidx.fragment:fragment-ktx:1.2.5")
+    implementation(Dependencies.Libraries.activity)
+    implementation(Dependencies.Libraries.fragment)
 
     //coroutines
-    val coroutine_version = "1.6.0"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version")
-
+    implementation(Dependencies.Libraries.coroutine)
 
     // hilt
-    val hilt_version = "2.40"
-    implementation("com.google.dagger:hilt-android:$hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
-
+    implementation(Dependencies.Libraries.hilt)
+    kapt(Dependencies.Libraries.hiltCompiler)
 }
