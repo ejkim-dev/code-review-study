@@ -1,4 +1,4 @@
-package com.example.baseandroidapp.core.presentation
+package com.example.baseandroidapp.vod
 
 import android.content.Intent
 import android.os.Bundle
@@ -38,24 +38,22 @@ class VodActivity : AppCompatActivity() {
         }
 
         vodViewModel.loadVodList()
-//        vodViewModel.loadVodListCo()
-        Toast.makeText(this, "using coroutine", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "using coroutine", Toast.LENGTH_SHORT).show()
 
-        vodViewModel.vodList.observe(this){
+        vodViewModel.vodList.observe(this) {
             renderMoviesList(it)
         }
-        vodViewModel.isLoading.observe(this){
+        vodViewModel.isLoading.observe(this) {
             setProgressVisibility(it)
         }
-
     }
 
 
     private fun renderMoviesList(movies: List<VodView>?) {
         vodAdapter.addList(movies.orEmpty())
     }
-    private fun setProgressVisibility(isVisible:Boolean){
 
+    private fun setProgressVisibility(isVisible: Boolean) {
         progressBar.isVisible = isVisible
     }
 }

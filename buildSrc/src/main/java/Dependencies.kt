@@ -33,6 +33,7 @@ object Dependencies {
             const val cardView = "1.0.0"
             const val constraintLayout = "2.0.2"
             const val coroutine = "1.6.0"
+            const val exoplayer = "2.17.1"
             const val fragment = "1.2.5"
             const val glide = "4.12.0"
             const val hilt = "2.40"
@@ -56,8 +57,13 @@ object Dependencies {
         const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
 
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
+
+        const val coroutine =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
+
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+
         const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
         const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
@@ -66,14 +72,18 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtensions}"
         const val cardView = "androidx.cardview:cardview:${Versions.cardView}"
         const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+
+        const val exoplayer = "com.google.android.exoplayer:exoplayer:${Versions.exoplayer}"
+        const val exoplayerCore = "com.google.android.exoplayer:exoplayer-core:${Versions.exoplayer}"
+        const val exoplayerUI = "com.google.android.exoplayer:exoplayer-ui:${Versions.exoplayer}"
+
         const val material = "com.google.android.material:material:${Versions.material}"
 
         const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
         const val glideAnnotation = "com.github.bumptech.glide:annotations:${Versions.glide}"
         const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
-        const val coroutine =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
+
 
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"

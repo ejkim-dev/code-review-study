@@ -1,4 +1,4 @@
-package com.example.baseandroidapp.core.presentation
+package com.example.baseandroidapp.vod
 
 import android.os.Bundle
 import android.widget.Toast
@@ -18,7 +18,6 @@ class VodDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_vod_detail)
 
         val binding = ActivityVodDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)

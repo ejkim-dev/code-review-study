@@ -16,8 +16,7 @@
         android:theme="@style/Theme.BaseAndroidApp">
 
         <activity
-            android:name=".core.presentation.VodActivity"
-            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:name=".util.navigator.RouteActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +25,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".core.presentation.VodDetailActivity" />
+        <activity
+            android:name=".sample.navigation.NavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vod.VodActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:exported="true" />
+        <activity android:name=".vod.VodDetailActivity" />
     </application>
 
 </manifest>

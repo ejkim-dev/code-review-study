@@ -49,6 +49,9 @@ dependencies {
     implementation(Dependencies.KTX.CORE)
     implementation(Dependencies.Libraries.appCompat)
     implementation(Dependencies.Libraries.material)
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("com.google.android.material:material:1.5.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     testImplementation(Dependencies.Test.JUNIT)
     androidTestImplementation(Dependencies.AndroidTest.JUNIT)
     androidTestImplementation(Dependencies.AndroidTest.ESPRESSO_CORE)
@@ -57,19 +60,25 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":presentation"))
 
-    //glide
+    // glide
     implementation(Dependencies.Libraries.glide)
     implementation(Dependencies.Libraries.glideAnnotation)
     kapt(Dependencies.Libraries.glideCompiler)
 
-    //by viewModels
+    // by viewModels
     implementation(Dependencies.Libraries.activity)
     implementation(Dependencies.Libraries.fragment)
 
-    //coroutines
+    // coroutines
     implementation(Dependencies.Libraries.coroutine)
 
     // hilt
     implementation(Dependencies.Libraries.hilt)
     kapt(Dependencies.Libraries.hiltCompiler)
+
+    // exoplayer
+    implementation(Dependencies.Libraries.exoplayer)
+    implementation(Dependencies.Libraries.exoplayerCore)
+    implementation(Dependencies.Libraries.exoplayerUI)
+
 }

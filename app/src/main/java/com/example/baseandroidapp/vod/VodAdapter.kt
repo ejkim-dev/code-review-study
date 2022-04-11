@@ -1,4 +1,4 @@
-package com.example.baseandroidapp.core.presentation
+package com.example.baseandroidapp.vod
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
