@@ -41,6 +41,7 @@ object Dependencies {
             const val lifecycle = "2.4.1"
             const val lifecycleExtensions = "2.1.0"
             const val material = "1.5.0"
+            const val navigation = "2.4.2"
             const val okHttpLoggingInterceptor = "4.9.0"
             const val recyclerView = "1.1.0"
             const val retrofit = "2.9.0"
@@ -79,10 +80,18 @@ object Dependencies {
 
         const val material = "com.google.android.material:material:${Versions.material}"
 
+        const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+        const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+
+        const val navigationFeatureModule = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}"
+        const val navigationTest = "androidx.navigation:navigation-testing:${Versions.navigation}"
+        const val navigationJetpackCompose = "androidx.navigation:navigation-compose:${Versions.navigation}"
+
+        const val navigationSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+
         const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
         const val glideAnnotation = "com.github.bumptech.glide:annotations:${Versions.glide}"
         const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
-
 
 
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"

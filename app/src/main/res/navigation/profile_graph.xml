@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_graph"
+    app:startDestination="@id/profile_dest">
+
+    <fragment
+        android:id="@+id/profile_dest"
+        android:name="com.example.baseandroidapp.sample.navigation.ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+
+        <argument
+            android:name="flowStepNumber"
+            app:argType="integer"
+            android:defaultValue="1"/>
+
+<!--        <action-->
+<!--            android:id="@+id/next_action"-->
+<!--            app:popUpTo="@id/home_dest">-->
+<!--        </action>-->
+    </fragment>
+
+</navigation>
