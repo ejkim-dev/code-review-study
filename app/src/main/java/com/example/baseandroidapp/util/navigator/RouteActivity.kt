@@ -23,7 +23,11 @@ class RouteActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.rv_route)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = RouteRecyclerAdapter(this)
+        recyclerView.adapter = RouteRecyclerAdapter().apply {
+            itemClickListener = {
+                navigator.move(it, context = this@RouteActivity)
+            }
+        }
 
 //        navigator.showNavigation(context = this)
 
