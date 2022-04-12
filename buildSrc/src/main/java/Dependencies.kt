@@ -31,13 +31,14 @@ object Dependencies {
             const val annotations = "1.1.0"
             const val appCompat = "1.4.1"
             const val cardView = "1.0.0"
-            const val constraintLayout = "2.0.2"
+            const val constraintLayout = "2.1.3"
             const val coroutine = "1.6.0"
             const val exoplayer = "2.17.1"
             const val fragment = "1.2.5"
             const val glide = "4.12.0"
             const val hilt = "2.40"
             const val ktx = "1.3.2"
+            const val legacySupport = "1.0.0"
             const val lifecycle = "2.4.1"
             const val lifecycleExtensions = "2.1.0"
             const val material = "1.5.0"
@@ -101,6 +102,8 @@ object Dependencies {
         const val retrofit = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
         const val okHttpLoggingInterceptor =
             "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpLoggingInterceptor}"
+
+        const val legacySupport = "androidx.legacy:legacy-support-v4:${Versions.legacySupport}"
     }
 
 }
