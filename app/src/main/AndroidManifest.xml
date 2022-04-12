@@ -33,6 +33,7 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:exported="true" />
         <activity android:name=".vod.VodDetailActivity" />
+        <activity android:name=".sample.motionlayout.YoutubeCloneActivity"/>
     </application>
 
 </manifest>

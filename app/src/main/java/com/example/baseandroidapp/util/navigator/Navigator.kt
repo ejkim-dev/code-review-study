@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.view.View
 import android.widget.Toast
+import com.example.baseandroidapp.sample.motionlayout.YoutubeCloneActivity
 import com.example.baseandroidapp.sample.navigation.NavigationActivity
 import com.example.baseandroidapp.util.auth.Authenticator
 import javax.inject.Inject
@@ -23,7 +24,7 @@ class Navigator
         context.startActivity(NavigationActivity.callingIntent(context))
 
     fun showMotionLayout(context: Context) =
-        context.startActivity(NavigationActivity.callingIntent(context))
+        context.startActivity(YoutubeCloneActivity.callingIntent(context))
 
     fun move(value: String, context: Context) {
        val intent = when (value) {
