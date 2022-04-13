@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_youtube_clone_scene">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/background_recyclerview"
         app:layout_constraintTop_toTopOf="parent"
@@ -97,5 +98,12 @@
         app:layout_constraintStart_toEndOf="@id/main_imageview"
         app:layout_constraintTop_toTopOf="@id/play_imageview" />
 
+
+    <Button
+        android:id="@+id/btn_show_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="show video"
+        android:elevation="-20dp"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
