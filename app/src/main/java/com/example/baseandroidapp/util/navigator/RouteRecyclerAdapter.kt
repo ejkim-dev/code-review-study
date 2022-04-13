@@ -7,13 +7,21 @@ import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.example.baseandroidapp.R
 
-class RouteRecyclerAdapter() : RecyclerView.Adapter<RouteRecyclerAdapter.ViewHolder>() {
+class RouteRecyclerAdapter : RecyclerView.Adapter<RouteRecyclerAdapter.ViewHolder>() {
 
-    var itemList = mutableListOf(Navigator.Destination.Navigation, Navigator.Destination.MotionLayout)
+    var itemList = mutableListOf(
+        Navigator.Destination.Navigation,
+        Navigator.Destination.MotionLayout,
+        Navigator.Destination.Notification,
+        Navigator.Destination.Exoplayer,
+    )
 
-    var itemClickListener : ((String) -> Unit)? = null
+    var itemClickListener: ((String) -> Unit)? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RouteRecyclerAdapter.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RouteRecyclerAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_route, parent, false)
 
@@ -36,7 +44,6 @@ class RouteRecyclerAdapter() : RecyclerView.Adapter<RouteRecyclerAdapter.ViewHol
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val btnMenu: Button = itemView.findViewById(R.id.btn_route)
     }
-
 
 
 }

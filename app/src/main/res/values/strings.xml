@@ -6,4 +6,7 @@
     <string name="home_detail">home detail</string>
     <string name="list_fragment">list fragment</string>
     <string name="profile_fragment">this is profile fragment</string>
+    <string name="channel_name">channel Name</string>
+    <string name="channel_description">channel description</string>
+    <string name="default_notification_channel_id">fcm default channel id</string>
 </resources>

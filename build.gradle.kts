@@ -13,6 +13,8 @@ buildscript {
 //        classpath("com.google.dagger:hilt-android-gradle-plugin:$hilt_version")
         classpath(Dependencies.Libraries.hiltGradlePlugin)
         classpath(Dependencies.Libraries.navigationSafeArgs)
+
+        classpath(ProjectDependencies.Libraries.fcm)
     }
 }
 

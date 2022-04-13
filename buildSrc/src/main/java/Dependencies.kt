@@ -34,6 +34,8 @@ object Dependencies {
             const val constraintLayout = "2.1.3"
             const val coroutine = "1.6.0"
             const val exoplayer = "2.17.1"
+            const val firebaseMessaging = "23.0.2"
+            const val firebaseBom = "29.3.0"
             const val fragment = "1.2.5"
             const val glide = "4.12.0"
             const val hilt = "2.40"
@@ -104,8 +106,23 @@ object Dependencies {
             "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpLoggingInterceptor}"
 
         const val legacySupport = "androidx.legacy:legacy-support-v4:${Versions.legacySupport}"
+
+        const val firebaseMessaging = "com.google.firebase:firebase-messaging:${Versions.firebaseMessaging}"
+        const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
     }
 
+}
+
+
+object ProjectDependencies{
+
+    object Libraries{
+        private object Versions{
+            const val fcm = "4.3.10"
+        }
+
+        const val fcm = "com.google.gms:google-services:${Versions.fcm}"
+    }
 }
 
 
