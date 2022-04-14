@@ -51,7 +51,8 @@
         <activity android:name=".vod.VodDetailActivity" />
         <activity android:name=".sample.motionlayout.YoutubeCloneActivity" />
         <activity android:name=".sample.notification.NotificationActivity" />
-        <activity android:name=".sample.exoplayer.ExoplayerActivity" />
+        <activity android:name=".sample.exoplayer.ExoplayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity
             android:name=".sample.pip.PipActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"

@@ -12,6 +12,12 @@ import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.ui.StyledPlayerView
 import com.google.android.exoplayer2.upstream.cache.SimpleCache
 
+import android.content.pm.ActivityInfo
+
+import android.view.View
+import android.view.ViewGroup
+
+
 class ExoplayerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityExoplayerBinding
@@ -22,6 +28,10 @@ class ExoplayerActivity : AppCompatActivity() {
     private lateinit var playerView: StyledPlayerView
 
     private val simpleCache: SimpleCache = AndroidApplication.simpleCache!!
+
+    // fullscreen mode check
+    private var isFullScreen = false
+
 
     companion object {
         fun callingIntent(context: Context) = Intent(context, ExoplayerActivity::class.java)
@@ -48,11 +58,25 @@ class ExoplayerActivity : AppCompatActivity() {
             releasePlayer()
             initPlayer(url = streamUrl)
         }
+
+
+        binding.btnFullscreen.setOnClickListener {
+            changeFullScreenMode()
+        }
     }
 
     override fun onStop() {
         super.onStop()
         releasePlayer()
+    }
+
+    override fun onBackPressed() {
+        if(isFullScreen){
+            changeFullScreenMode()
+            return
+        }
+        super.onBackPressed()
+
     }
 
     private fun initPlayer(url: String) {
@@ -74,5 +98,48 @@ class ExoplayerActivity : AppCompatActivity() {
     private fun releasePlayer() {
         if (::player.isInitialized) player.release()
     }
+
+
+    private fun changeFullScreenMode() {
+        if (isFullScreen) {
+//                    fullscreenButton.setImageDrawable(
+//                        ContextCompat.getDrawable(
+//                            this@MainActivity,
+//                            R.drawable.ic_fullscreen_open
+//                        )
+//                    )
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+            if (supportActionBar != null) {
+                supportActionBar!!.show()
+            }
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            val params = playerView.layoutParams
+            params.width = ViewGroup.LayoutParams.MATCH_PARENT
+            params.height =
+                (200 * applicationContext.resources.displayMetrics.density).toInt()
+            playerView.layoutParams = params
+            isFullScreen = false
+        } else {
+//                    fullscreenButton.setImageDrawable(
+//                        ContextCompat.getDrawable(
+//                            this@MainActivity,
+//                            R.drawable.ic_fullscreen_close
+//                        )
+//                    )
+            window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+            if (supportActionBar != null) {
+                supportActionBar!!.hide()
+            }
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            val params = playerView.layoutParams
+            params.width = ViewGroup.LayoutParams.MATCH_PARENT
+            params.height = ViewGroup.LayoutParams.MATCH_PARENT
+            playerView.layoutParams = params
+            isFullScreen = true
+        }
+    }
+
 
 }
