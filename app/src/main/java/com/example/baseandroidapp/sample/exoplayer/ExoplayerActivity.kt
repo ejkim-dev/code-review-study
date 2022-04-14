@@ -13,12 +13,17 @@ import com.google.android.exoplayer2.ui.StyledPlayerView
 import com.google.android.exoplayer2.upstream.cache.SimpleCache
 
 import android.content.pm.ActivityInfo
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 
 import android.view.View
 import android.view.ViewGroup
+import com.example.baseandroidapp.util.DLog
 
 
-class ExoplayerActivity : AppCompatActivity() {
+class ExoplayerActivity : AppCompatActivity(), SensorEventListener {
 
     private lateinit var binding: ActivityExoplayerBinding
 
@@ -32,6 +37,9 @@ class ExoplayerActivity : AppCompatActivity() {
     // fullscreen mode check
     private var isFullScreen = false
 
+    // sensor
+    private lateinit var sensorManager: SensorManager
+    private lateinit var gravitySensor: Sensor
 
     companion object {
         fun callingIntent(context: Context) = Intent(context, ExoplayerActivity::class.java)
@@ -63,7 +71,23 @@ class ExoplayerActivity : AppCompatActivity() {
         binding.btnFullscreen.setOnClickListener {
             changeFullScreenMode()
         }
+
+
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        gravitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)
+
     }
+
+    override fun onResume() {
+        super.onResume()
+        sensorManager.registerListener(this, gravitySensor, SensorManager.SENSOR_DELAY_NORMAL)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
+    }
+
 
     override fun onStop() {
         super.onStop()
@@ -71,7 +95,7 @@ class ExoplayerActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(isFullScreen){
+        if (isFullScreen) {
             changeFullScreenMode()
             return
         }
@@ -139,6 +163,34 @@ class ExoplayerActivity : AppCompatActivity() {
             playerView.layoutParams = params
             isFullScreen = true
         }
+    }
+
+    var isReverse = false
+
+    fun rotateScreen() {
+        if (isFullScreen) {
+            requestedOrientation =
+                if (isReverse) ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE else ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+            isReverse = !isReverse
+            val params = playerView.layoutParams
+            params.width = ViewGroup.LayoutParams.MATCH_PARENT
+            params.height = ViewGroup.LayoutParams.MATCH_PARENT
+            playerView.layoutParams = params
+        }
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (event?.sensor == gravitySensor) {
+            val xAxis = event.values[0]
+            if ((xAxis > 9.5 && isReverse) || (xAxis < -9.5 && !isReverse)) {
+//                Toast.makeText(this, "rotate screen", Toast.LENGTH_SHORT).show()
+                rotateScreen()
+            }
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+
     }
 
 
