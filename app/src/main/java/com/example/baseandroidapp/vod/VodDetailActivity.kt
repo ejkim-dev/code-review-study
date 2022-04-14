@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.example.baseandroidapp.R
 import com.example.baseandroidapp.databinding.ActivityVodDetailBinding
 import com.example.baseandroidapp.util.DLog
 import com.example.baseandroidapp.util.extension.loadFromUrl
@@ -16,11 +18,18 @@ class VodDetailActivity : AppCompatActivity() {
 
     private val vodViewModel: VodDetailViewModel by viewModels()
 
+    private lateinit var binding :ActivityVodDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = ActivityVodDetailBinding.inflate(layoutInflater)
+        // view binding
+        binding = ActivityVodDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // data binding
+//        binding = DataBindingUtil.setContentView(this@VodDetailActivity, R.layout.activity_vod_detail)
+
 
         vodViewModel.vodData.observe(this) {
             binding.tvVodTitle.text = it.title
