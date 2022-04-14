@@ -29,7 +29,7 @@ class RouteActivity : AppCompatActivity() {
             }
         }
 
-//        navigator.showNavigation(context = this)
+//        navigator.showPip(context = this)
 
     }
 }

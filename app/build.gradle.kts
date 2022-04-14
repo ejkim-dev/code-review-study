@@ -83,6 +83,8 @@ dependencies {
     implementation(Dependencies.Libraries.exoplayer)
     implementation(Dependencies.Libraries.exoplayerCore)
     implementation(Dependencies.Libraries.exoplayerUI)
+    implementation(Dependencies.Libraries.exoplayerMediaSession)
+
 
     // navigation
     implementation(Dependencies.Libraries.navigationFragment)

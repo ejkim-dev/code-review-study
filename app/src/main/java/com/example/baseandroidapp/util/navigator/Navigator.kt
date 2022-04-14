@@ -9,6 +9,7 @@ import com.example.baseandroidapp.sample.exoplayer.ExoplayerActivity
 import com.example.baseandroidapp.sample.motionlayout.YoutubeCloneActivity
 import com.example.baseandroidapp.sample.navigation.NavigationActivity
 import com.example.baseandroidapp.sample.notification.NotificationActivity
+import com.example.baseandroidapp.sample.pip.PipActivity
 import com.example.baseandroidapp.util.auth.Authenticator
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -21,7 +22,8 @@ class Navigator
         Navigation("navigation"),
         MotionLayout("motion layout"),
         Notification("notification"),
-        Exoplayer("exoplayer")
+        Exoplayer("exoplayer"),
+        Pip("pip"),
     }
 
 
@@ -37,12 +39,16 @@ class Navigator
     fun showExoplayer(context: Context) =
         context.startActivity(ExoplayerActivity.callingIntent(context))
 
+    fun showPip(context: Context) =
+        context.startActivity(PipActivity.callingIntent(context))
+
     fun move(value: String, context: Context) {
        val intent = when (value) {
             Destination.Navigation.title -> showNavigation(context)
             Destination.MotionLayout.title -> showMotionLayout(context)
             Destination.Notification.title -> showNotification(context)
             Destination.Exoplayer.title -> showExoplayer(context)
+            Destination.Pip.title -> showPip(context)
             else-> null
         }
         if(intent == null) {
