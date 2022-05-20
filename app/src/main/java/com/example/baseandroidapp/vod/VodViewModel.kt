@@ -1,4 +1,4 @@
-package com.example.presentation.viewmodel
+package com.example.baseandroidapp.vod
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

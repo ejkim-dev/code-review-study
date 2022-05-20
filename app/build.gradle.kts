@@ -61,7 +61,6 @@ dependencies {
 
     implementation(project(":domain"))
     implementation(project(":data"))
-    implementation(project(":presentation"))
 
     // glide
     implementation(Dependencies.Libraries.glide)
@@ -71,6 +70,9 @@ dependencies {
     // by viewModels
     implementation(Dependencies.Libraries.activity)
     implementation(Dependencies.Libraries.fragment)
+
+    // viewModel
+    implementation(Dependencies.Libraries.viewModel)
 
     // coroutines
     implementation(Dependencies.Libraries.coroutine)
