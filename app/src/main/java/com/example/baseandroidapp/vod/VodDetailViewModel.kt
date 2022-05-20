@@ -3,11 +3,10 @@ package com.example.baseandroidapp.vod
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.baseandroidapp.util.base.BaseViewModel
 import com.example.domain.entity.Vod
 import com.example.domain.usecase.GetVodUseCase
 import com.example.domain.usecase.GetVodUseCase.Params
-import com.example.presentation.base.BaseViewModel
-import com.example.presentation.view.VodDetailView
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -25,8 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BaseAndroidApp">
 
+
         <activity
-            android:name=".util.navigator.RouteActivity"
+            android:name=".feature.main.MainActivity"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>
@@ -34,11 +35,22 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+        </activity>
 
-            <!--                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />-->
-            <!--            </intent-filter>-->
+
+
+
+
+<!--        sample code -->
+        <activity
+            android:name=".util.navigator.RouteActivity"
+            android:exported="true"
+            android:noHistory="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
 
         <activity
@@ -50,7 +62,7 @@
             android:exported="true" />
         <activity android:name=".vod.VodDetailActivity" />
         <activity android:name=".sample.motionlayout.YoutubeCloneActivity" />
-        <activity android:name=".sample.notification.NotificationActivity" />
+
         <activity android:name=".sample.exoplayer.ExoplayerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity
@@ -60,17 +72,6 @@
             android:launchMode="singleTask"
             tools:targetApi="n" />
 
-
-        <service
-            android:name=".sample.notification.MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-            <meta-data
-                android:name="com.google.firebase.messaging.default_notification_channel_id"
-                android:value="@string/default_notification_channel_id" />
-        </service>
     </application>
 
 </manifest>

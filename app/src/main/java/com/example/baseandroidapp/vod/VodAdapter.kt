@@ -2,13 +2,12 @@ package com.example.baseandroidapp.vod
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.baseandroidapp.R
 import com.example.baseandroidapp.databinding.ItemVodBinding
-import androidx.databinding.DataBindingUtil
 import com.example.baseandroidapp.util.DLog
 import com.example.baseandroidapp.util.extension.loadFromUrl
-import com.example.presentation.view.VodView
 
 class VodAdapter : RecyclerView.Adapter<VodAdapter.ViewHolder>() {
 

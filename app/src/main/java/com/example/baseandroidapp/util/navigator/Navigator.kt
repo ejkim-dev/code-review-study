@@ -1,14 +1,11 @@
 package com.example.baseandroidapp.util.navigator
 
-import android.app.Notification
 import android.content.Context
-import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import com.example.baseandroidapp.sample.exoplayer.ExoplayerActivity
 import com.example.baseandroidapp.sample.motionlayout.YoutubeCloneActivity
 import com.example.baseandroidapp.sample.navigation.NavigationActivity
-import com.example.baseandroidapp.sample.notification.NotificationActivity
 import com.example.baseandroidapp.sample.pip.PipActivity
 import com.example.baseandroidapp.util.auth.Authenticator
 import javax.inject.Inject
@@ -33,8 +30,6 @@ class Navigator
     fun showMotionLayout(context: Context) =
         context.startActivity(YoutubeCloneActivity.callingIntent(context))
 
-    fun showNotification(context: Context) =
-        context.startActivity(NotificationActivity.callingIntent(context))
 
     fun showExoplayer(context: Context) =
         context.startActivity(ExoplayerActivity.callingIntent(context))
@@ -46,7 +41,6 @@ class Navigator
        val intent = when (value) {
             Destination.Navigation.title -> showNavigation(context)
             Destination.MotionLayout.title -> showMotionLayout(context)
-            Destination.Notification.title -> showNotification(context)
             Destination.Exoplayer.title -> showExoplayer(context)
             Destination.Pip.title -> showPip(context)
             else-> null

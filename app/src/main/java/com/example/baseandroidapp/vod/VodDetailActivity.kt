@@ -4,13 +4,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import com.example.baseandroidapp.R
 import com.example.baseandroidapp.databinding.ActivityVodDetailBinding
 import com.example.baseandroidapp.util.DLog
 import com.example.baseandroidapp.util.extension.loadFromUrl
-import com.example.presentation.view.VodView
-import com.example.presentation.viewmodel.VodDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

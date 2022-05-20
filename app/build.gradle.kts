@@ -5,14 +5,13 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
-    id("com.google.gms.google-services")
 }
 
 android {
     compileSdk = 31
 
     defaultConfig {
-        applicationId = "com.example.baseandroidapp"
+        applicationId = "com.devhoony.gyodam"
         minSdk = 21
         targetSdk = 31
         versionCode = 1
@@ -95,7 +94,4 @@ dependencies {
     androidTestImplementation(Dependencies.Libraries.navigationTest)
     implementation(Dependencies.Libraries.navigationJetpackCompose)
 
-    // fcm
-    implementation(Dependencies.Libraries.firebaseMessaging)
-    implementation(platform(Dependencies.Libraries.firebaseBom))
 }
