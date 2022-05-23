@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:divider="@color/black"
+    android:background="@color/white"
+    android:showDividers="middle">
+
+    <LinearLayout
+        android:layout_width="28dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_num"
+            style="@style/TextView_RowDay"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_mon"
+        style="@style/TableRow_LinearLayout">
+
+        <TextView
+            style="@style/TextView_RowDay"
+            android:text="@string/monday" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_tue"
+        style="@style/TableRow_LinearLayout">
+
+        <TextView
+            style="@style/TextView_RowDay"
+            android:text="@string/tuesday" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_wed"
+        style="@style/TableRow_LinearLayout">
+
+        <TextView
+            style="@style/TextView_RowDay"
+            android:text="@string/wednesday" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_thu"
+        style="@style/TableRow_LinearLayout">
+
+        <TextView
+            style="@style/TextView_RowDay"
+            android:text="@string/thursday" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_fri"
+        style="@style/TableRow_LinearLayout">
+
+        <TextView
+            style="@style/TextView_RowDay"
+            android:text="@string/friday" />
+
+    </LinearLayout>
+
+
+</TableRow>
