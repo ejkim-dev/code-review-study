@@ -13,5 +13,6 @@ data class ScheduleView(
     val grade : Int = 0,
     val ban: Int = 10,
     val week: String = "",
+    val weekDay: Int = 0,
     val gyosi: Int = 0, // 1,2,3,4,5,6
 )

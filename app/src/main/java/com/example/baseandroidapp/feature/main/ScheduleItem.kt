@@ -5,6 +5,8 @@ import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.compose.ui.graphics.Color
+import androidx.core.content.ContextCompat
 import com.example.baseandroidapp.R
 
 class ScheduleItem(context: Context, viewData:ScheduleView): LinearLayout(context) {
@@ -28,6 +30,7 @@ class ScheduleItem(context: Context, viewData:ScheduleView): LinearLayout(contex
             LayoutParams.WRAP_CONTENT
         )
         gravity = Gravity.CENTER
+        setBackgroundColor(ContextCompat.getColor(context, R.color.white))
 
         this.setOnClickListener {
             Toast.makeText(context, "${viewData.grade}-${viewData.ban}", Toast.LENGTH_SHORT).show()

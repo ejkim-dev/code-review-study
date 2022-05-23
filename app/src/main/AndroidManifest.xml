@@ -30,6 +30,17 @@
             android:name=".feature.main.MainActivity"
             android:exported="true"
             android:noHistory="true">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
+
+        <activity
+            android:name=".feature.grid.GridActivity"
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,19 +49,16 @@
         </activity>
 
 
-
-
-
-<!--        sample code -->
+        <!--        sample code -->
         <activity
             android:name=".util.navigator.RouteActivity"
             android:exported="true"
             android:noHistory="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
 
         <activity
@@ -63,13 +71,14 @@
         <activity android:name=".vod.VodDetailActivity" />
         <activity android:name=".sample.motionlayout.YoutubeCloneActivity" />
 
-        <activity android:name=".sample.exoplayer.ExoplayerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity
+            android:name=".sample.exoplayer.ExoplayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".sample.pip.PipActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-            android:supportsPictureInPicture="true"
             android:launchMode="singleTask"
+            android:supportsPictureInPicture="true"
             tools:targetApi="n" />
 
     </application>
