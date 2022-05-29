@@ -7,7 +7,10 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.GridLayout
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.baseandroidapp.AndroidApplication.Companion.BAN_COUNT
+import com.example.baseandroidapp.R
 import com.example.baseandroidapp.databinding.ActivityGridBinding
 import com.example.baseandroidapp.feature.grid.filter.FilterAdapter
 import com.example.baseandroidapp.feature.grid.filter.FilterView
@@ -18,6 +21,8 @@ import com.example.baseandroidapp.util.navigator.Navigator
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import javax.inject.Inject
+import com.example.baseandroidapp.AndroidApplication.Companion.DAY_COUNT
+import com.example.baseandroidapp.AndroidApplication.Companion.GYOSI_COUNT
 
 @AndroidEntryPoint
 class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
@@ -26,10 +31,6 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
     lateinit var navigator: Navigator
 
     private val viewModel: GridViewModel by viewModels()
-
-    private val GYOSI_COUNT = 6
-    private val DAY_COUNT = 5
-    private val BAN_COUNT = 10
 
     val list = listOf(
         ScheduleView(grade = 1, ban = 1, gyosi = 2, week = "Mon", weekDay = Calendar.MONDAY),
@@ -105,8 +106,8 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
             }
         }
 
-        viewModel.banCheckList.observe(this){
-            banList = it.map { it.copy() }
+        viewModel.banCheckList.observe(this) { list ->
+            banList = list.map { it.copy() }
             clearTable()
             addItem()
         }
@@ -120,32 +121,34 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
             val array = mutableListOf(b, b, b, b, b, b)
             viewModel.setGradeCheckList(array)
         }
-        cbGrade1.setOnCheckedChangeListener { compoundButton, b ->
+        cbGrade1.setOnCheckedChangeListener { _, b ->
             viewModel.setGradeIndex(0, b)
         }
 
-        cbGrade2.setOnCheckedChangeListener { compoundButton, b ->
+        cbGrade2.setOnCheckedChangeListener { _, b ->
             viewModel.setGradeIndex(1, b)
         }
 
-        cbGrade3.setOnCheckedChangeListener { compoundButton, b ->
+        cbGrade3.setOnCheckedChangeListener { _, b ->
             viewModel.setGradeIndex(2, b)
         }
 
-        cbGrade4.setOnCheckedChangeListener { compoundButton, b ->
+        cbGrade4.setOnCheckedChangeListener { _, b ->
             viewModel.setGradeIndex(3, b)
         }
 
-        cbGrade5.setOnCheckedChangeListener { compoundButton, b ->
+        cbGrade5.setOnCheckedChangeListener { _, b ->
             viewModel.setGradeIndex(4, b)
         }
 
-        cbGrade6.setOnCheckedChangeListener { compoundButton, b ->
+        cbGrade6.setOnCheckedChangeListener { _, b ->
             viewModel.setGradeIndex(5, b)
         }
     }
 
     private fun initBanFilter() = with(binding.banFilter) {
+
+        tvTitle.text = getString(R.string.ban)
 
         val filterAdapter = FilterAdapter().apply {
             itemClickListener = {
@@ -198,6 +201,9 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
                     }
                 )
                 layoutMap["${i}-${j}"] = layout
+                layout.setOnClickListener {
+
+                }
             }
         }
     }
@@ -206,7 +212,7 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
         list.forEach { scheduleView ->
             if (gradeList[scheduleView.grade - 1]) {
                 banList.forEach {
-                    if(it.value == scheduleView.ban && it.isChecked){
+                    if (it.value == scheduleView.ban && it.isChecked) {
                         addItem(scheduleView)
                     }
                 }
@@ -236,6 +242,9 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
             scheduleView
         )
         layoutMap["${scheduleView.gyosi}-${scheduleView.weekDay - 1}"]?.addView(item)
+        item.setOnClickListener {
+            layoutMap["${scheduleView.gyosi}-${scheduleView.weekDay - 1}"]?.callOnClick()
+        }
     }
 
     private fun clearTable() {

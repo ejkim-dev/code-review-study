@@ -30,7 +30,7 @@ class ScheduleItem(context: Context, viewData:ScheduleView): LinearLayout(contex
             LayoutParams.WRAP_CONTENT
         )
         gravity = Gravity.CENTER
-        setBackgroundColor(ContextCompat.getColor(context, R.color.white))
+        setBackgroundColor(ContextCompat.getColor(context, R.color.transparent))
 
         this.setOnClickListener {
             Toast.makeText(context, "${viewData.grade}-${viewData.ban}", Toast.LENGTH_SHORT).show()

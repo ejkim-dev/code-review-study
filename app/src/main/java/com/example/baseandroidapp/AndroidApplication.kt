@@ -15,6 +15,12 @@ class AndroidApplication : Application() {
         var leastRecentlyUsedCacheEvictor: LeastRecentlyUsedCacheEvictor? = null
         var exoDatabaseProvider: StandaloneDatabaseProvider? = null
         var exoPlayerCacheSize: Long = 90 * 1024 * 1024L
+
+
+        // app static variable
+        const val GYOSI_COUNT = 6
+        const val DAY_COUNT = 5
+        const val BAN_COUNT = 10
     }
 
     override fun onCreate() {
@@ -28,7 +34,8 @@ class AndroidApplication : Application() {
         }
 
         if (simpleCache == null) {
-            simpleCache = SimpleCache(cacheDir, leastRecentlyUsedCacheEvictor!!, exoDatabaseProvider!!)
+            simpleCache =
+                SimpleCache(cacheDir, leastRecentlyUsedCacheEvictor!!, exoDatabaseProvider!!)
         }
     }
 

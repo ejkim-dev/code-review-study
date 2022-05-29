@@ -7,9 +7,9 @@ import com.example.baseandroidapp.util.base.BaseViewModel
 
 class GridViewModel : BaseViewModel() {
 
+
     private val _gradeCheckList: MutableLiveData<MutableList<Boolean>> = MutableLiveData()
     val gradeCheckList: LiveData<MutableList<Boolean>> = _gradeCheckList
-
     fun setGradeCheckList(list : MutableList<Boolean>){
         _gradeCheckList.value = list
     }

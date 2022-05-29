@@ -24,10 +24,12 @@ class SettingsActivity : ViewBindingActivity<ActivitySettingsBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        loadGradeData()
 
         binding.btnApply.setOnClickListener {
 //            Toast.makeText(this, "${binding.picker6.getSettingValue()}", Toast.LENGTH_SHORT).show()
             Toast.makeText(this, getString(R.string.grade_saved_text), Toast.LENGTH_SHORT).show()
+            saveGradeData()
         }
 
     }

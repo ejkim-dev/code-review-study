@@ -149,62 +149,17 @@
                                 </GridLayout>
 
                             </LinearLayout>
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </ScrollView>
 
             </HorizontalScrollView>
 
-
-            <Button
-                android:id="@+id/btn_setting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="setting"/>
-
         </LinearLayout>
 
     </ScrollView>
-
-
-    <EditText
-        android:id="@+id/et_row"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:hint="row"
-        android:inputType="numberDecimal"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_add" />
-
-
-    <EditText
-        android:id="@+id/et_column"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:hint="column"
-        android:inputType="numberDecimal"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/et_row" />
-
-
-    <Button
-        android:id="@+id/btn_clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="clear"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add item"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_clear" />
 
 </LinearLayout>

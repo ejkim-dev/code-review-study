@@ -8,6 +8,7 @@
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/drawable/account_login_button_style.xml" value="0.1" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/drawable/bg_button_border_radius.xml" value="0.17229729729729729" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/drawable/bg_vertical_layout.xml" value="0.3328125" />
+        <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/drawable/bg_vertical_layout_selected.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/drawable/bottom_nav_style.xml" value="0.1" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/drawable/button_style.xml" value="0.378125" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/drawable/custom_skyblue_radius.xml" value="0.16" />
@@ -46,7 +47,7 @@
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/activity_preview_theme.xml" value="0.14375" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/activity_route.xml" value="0.13179347826086957" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/activity_select_theme.xml" value="0.14375" />
-        <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/activity_settings.xml" value="0.536" />
+        <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/activity_settings.xml" value="0.4691119691119691" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/activity_sns.xml" value="0.2" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/activity_splash.xml" value="0.152" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/activity_theme.xml" value="0.1" />
@@ -71,7 +72,7 @@
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/invitation_group_item.xml" value="0.146875" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/item_filter_checkbox.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/item_filter_dynamic.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/item_filter_grade.xml" value="0.6" />
+        <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/item_filter_grade.xml" value="0.4827586206896552" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/item_greetings.xml" value="0.13456284153005466" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/item_invitation.xml" value="0.536" />
         <entry key="..\:/Users/kimho/Desktop/BaseAndroidApp/app/src/main/res/layout/item_layout_vertical.xml" value="0.32734375" />

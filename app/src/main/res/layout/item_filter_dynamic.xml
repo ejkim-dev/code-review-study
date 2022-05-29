@@ -17,6 +17,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingHorizontal="6dp"
+                tools:text="@string/grade" />
+
             <CheckBox
                 android:id="@+id/cb_all"
                 android:layout_width="wrap_content"
@@ -27,9 +37,9 @@
                 android:id="@+id/rv_filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_filter_checkbox"
                 android:nestedScrollingEnabled="false"
-                tools:itemCount="1"/>
+                tools:itemCount="1"
+                tools:listitem="@layout/item_filter_checkbox" />
 
         </LinearLayout>
 
