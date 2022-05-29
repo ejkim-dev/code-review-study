@@ -51,6 +51,20 @@ class InsertTableActivity : ViewBindingActivity<ActivityInsertTableBinding>() {
                 clearTable()
                 clearSelectedTable()
             }
+
+            btnAllDelete.setOnClickListener {
+                clearTable()
+                clearSelectedTable()
+            }
+
+            btnRemoveTime.setOnClickListener {
+                clearSelectedTable()
+            }
+
+            btnSave.setOnClickListener {
+
+            }
+
         }
     }
 
