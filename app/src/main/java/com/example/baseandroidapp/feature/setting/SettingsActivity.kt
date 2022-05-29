@@ -24,6 +24,8 @@ class SettingsActivity : ViewBindingActivity<ActivitySettingsBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        initGradeInput()
+
         loadGradeData()
 
         binding.btnApply.setOnClickListener {
@@ -32,6 +34,15 @@ class SettingsActivity : ViewBindingActivity<ActivitySettingsBinding>() {
             saveGradeData()
         }
 
+    }
+
+    private fun initGradeInput() = with(binding) {
+        picker1.setTitle(getString(R.string.grade_1))
+        picker2.setTitle(getString(R.string.grade_2))
+        picker3.setTitle(getString(R.string.grade_3))
+        picker4.setTitle(getString(R.string.grade_4))
+        picker5.setTitle(getString(R.string.grade_5))
+        picker6.setTitle(getString(R.string.grade_6))
     }
 
     private fun loadGradeData() = with(binding) {

@@ -10,22 +10,25 @@
     android:paddingHorizontal="4dp">
 
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/grade_6"/>
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginRight="12dp"
+        tools:text="@string/grade_6"/>
 
     <NumberPicker
         android:id="@+id/grade_picker"
         android:layout_width="wrap_content"
         android:layout_height="90dp"
-        android:scaleX="0.8"
-        android:scaleY="0.8"/>
+        android:scaleX="1"
+        android:scaleY="1"/>
 
     <Spinner
         android:id="@+id/grade_spinner"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"/>
-
 
 </LinearLayout>

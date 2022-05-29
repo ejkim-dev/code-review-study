@@ -7,9 +7,10 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.GridLayout
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.baseandroidapp.AndroidApplication.Companion.BAN_COUNT
+import com.example.baseandroidapp.AndroidApplication.Companion.DAY_COUNT
+import com.example.baseandroidapp.AndroidApplication.Companion.GYOSI_COUNT
 import com.example.baseandroidapp.R
 import com.example.baseandroidapp.databinding.ActivityGridBinding
 import com.example.baseandroidapp.feature.grid.filter.FilterAdapter
@@ -21,8 +22,6 @@ import com.example.baseandroidapp.util.navigator.Navigator
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import javax.inject.Inject
-import com.example.baseandroidapp.AndroidApplication.Companion.DAY_COUNT
-import com.example.baseandroidapp.AndroidApplication.Companion.GYOSI_COUNT
 
 @AndroidEntryPoint
 class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
@@ -58,10 +57,8 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
     override fun inflateLayout(layoutInflater: LayoutInflater) =
         ActivityGridBinding.inflate(layoutInflater)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         initGradeFilter()
         initBanFilter()
@@ -70,22 +67,6 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
         viewModel.setGradeCheckList(mutableListOf(false, false, false, false, false, false))
         initObserver()
 
-        with(binding) {
-//            btnAdd.setOnClickListener {
-////            addItem(binding.etRow.text.toString().toInt(), binding.etColumn.text.toString().toInt())
-//                list.forEach {
-//                    addItem(it)
-//                }
-//            }
-
-//            btnClear.setOnClickListener {
-//                clearTable()
-//            }
-
-            btnSetting.setOnClickListener {
-                navigator.showSetting(this@GridActivity)
-            }
-        }
     }
 
     private fun initObserver() {

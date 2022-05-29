@@ -27,6 +27,10 @@ class SettingsPicker @JvmOverloads constructor(
         binding.gradeSpinner.adapter = arrayAdapter
     }
 
+    fun setTitle(title:String){
+        binding.tvTitle.text = title
+    }
+
     fun setMinValue(value: Int) {
         binding.gradePicker.minValue = value
     }
