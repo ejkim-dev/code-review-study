@@ -86,6 +86,8 @@ dependencies {
     implementation(Dependencies.Libraries.exoplayerUI)
     implementation(Dependencies.Libraries.exoplayerMediaSession)
 
+    // encrypted shared preference
+    implementation(Dependencies.Libraries.encryptedSharedPreference)
 
     // navigation
     implementation(Dependencies.Libraries.navigationFragment)

@@ -3,6 +3,9 @@ package com.example.baseandroidapp.util.navigator
 import android.content.Context
 import android.view.View
 import android.widget.Toast
+import com.example.baseandroidapp.feature.grid.GridActivity
+import com.example.baseandroidapp.feature.insert.InsertTableActivity
+import com.example.baseandroidapp.feature.setting.SettingsActivity
 import com.example.baseandroidapp.sample.exoplayer.ExoplayerActivity
 import com.example.baseandroidapp.sample.motionlayout.YoutubeCloneActivity
 import com.example.baseandroidapp.sample.navigation.NavigationActivity
@@ -23,7 +26,19 @@ class Navigator
         Pip("pip"),
     }
 
+    fun showSetting(context: Context) =
+        context.startActivity(SettingsActivity.callingIntent(context))
 
+    fun showInsertTable(context: Context) =
+        context.startActivity(InsertTableActivity.callingIntent(context))
+
+    fun showViewTable(context: Context) =
+        context.startActivity(GridActivity.callingIntent(context))
+
+
+
+
+//    Sample code
     fun showNavigation(context: Context) =
         context.startActivity(NavigationActivity.callingIntent(context))
 

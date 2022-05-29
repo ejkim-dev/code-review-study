@@ -33,6 +33,7 @@ object Dependencies {
             const val cardView = "1.0.0"
             const val constraintLayout = "2.1.3"
             const val coroutine = "1.6.0"
+            const val encryptedSharedPreference = "1.1.0-alpha03"
             const val exoplayer = "2.17.1"
             const val firebaseMessaging = "23.0.2"
             const val firebaseBom = "29.3.0"
@@ -76,6 +77,9 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtensions}"
         const val cardView = "androidx.cardview:cardview:${Versions.cardView}"
         const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+
+        const val encryptedSharedPreference =
+            "androidx.security:security-crypto:${Versions.encryptedSharedPreference}"
 
         const val exoplayer = "com.google.android.exoplayer:exoplayer:${Versions.exoplayer}"
         const val exoplayerCore = "com.google.android.exoplayer:exoplayer-core:${Versions.exoplayer}"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="param_grade_1" translatable="false">grade_one</string>
+    <string name="param_grade_2" translatable="false">grade_two</string>
+    <string name="param_grade_3" translatable="false">grade_three</string>
+    <string name="param_grade_4" translatable="false">grade_four</string>
+    <string name="param_grade_5" translatable="false">grade_five</string>
+    <string name="param_grade_6" translatable="false">grade_six</string>
+
+</resources>

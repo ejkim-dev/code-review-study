@@ -27,6 +27,21 @@
 
 
         <activity
+            android:name=".feature.route.RouteActivity"
+            android:exported="true"
+            android:noHistory="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".feature.setting.SettingsActivity" />
+        <activity android:name=".feature.insert.InsertTableActivity" />
+        <activity android:name=".feature.grid.GridActivity" />
+
+
+        <activity
             android:name=".feature.main.MainActivity"
             android:exported="true"
             android:noHistory="true">
@@ -35,17 +50,6 @@
 
             <!--                <category android:name="android.intent.category.LAUNCHER" />-->
             <!--            </intent-filter>-->
-        </activity>
-
-        <activity
-            android:name=".feature.grid.GridActivity"
-            android:exported="true"
-            android:noHistory="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
 

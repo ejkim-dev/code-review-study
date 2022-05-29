@@ -1,22 +1,29 @@
 package com.example.baseandroidapp.feature.grid
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.widget.GridLayout
+import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.baseandroidapp.databinding.ActivityGridBinding
+import com.example.baseandroidapp.feature.grid.filter.FilterAdapter
+import com.example.baseandroidapp.feature.grid.filter.FilterView
 import com.example.baseandroidapp.feature.main.ScheduleItem
 import com.example.baseandroidapp.feature.main.ScheduleView
 import com.example.baseandroidapp.util.base.ViewBindingActivity
-import android.widget.GridLayout
-import android.widget.LinearLayout
-import androidx.activity.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.baseandroidapp.feature.grid.filter.FilterAdapter
-import com.example.baseandroidapp.feature.grid.filter.FilterView
+import com.example.baseandroidapp.util.navigator.Navigator
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
+
+    @Inject
+    lateinit var navigator: Navigator
 
     private val viewModel: GridViewModel by viewModels()
 
@@ -42,6 +49,10 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
     private var banList = listOf<FilterView>()
 
     private val layoutMap: MutableMap<String, VerticalLayout> = mutableMapOf()
+
+    companion object {
+        fun callingIntent(context: Context) = Intent(context, GridActivity::class.java)
+    }
 
     override fun inflateLayout(layoutInflater: LayoutInflater) =
         ActivityGridBinding.inflate(layoutInflater)
@@ -69,6 +80,10 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
 //            btnClear.setOnClickListener {
 //                clearTable()
 //            }
+
+            btnSetting.setOnClickListener {
+                navigator.showSetting(this@GridActivity)
+            }
         }
     }
 
