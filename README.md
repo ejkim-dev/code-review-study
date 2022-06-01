@@ -5,6 +5,22 @@
 ![Kotlin](https://img.shields.io/badge/kotlin-%230095D5.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 ![IOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
 ![Swift](https://img.shields.io/badge/swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white)
+
+## Members
+<a href="https://github.com/ejkim-dev/ejkim-dev/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ejkim-dev/ejkim-dev" />
+</a>
+<a href="https://github.com/HaejungAhn/HaejungAhn/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=HaejungAhn/HaejungAhn" />
+</a>
+<a href="https://github.com/dev-hoony/devPortfolio/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dev-hoony/devPortfolio" />
+</a>
+<a href="https://github.com/mjini-dev/MPhotoCard/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=mjini-dev/MPhotoCard" />
+</a>
+
+
 ## Plan
 
 | Week | 스터디 날짜 | 시간 | 진행 |커리큘럼 내용 |
