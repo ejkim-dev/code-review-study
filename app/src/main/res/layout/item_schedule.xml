@@ -7,21 +7,34 @@
     android:layout_margin="2dp"
     android:paddingHorizontal="4dp"
     android:background="@color/transparent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_name"
-        style="@style/ScheduleItemTextView"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="도덕" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/ScheduleItemTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="도덕" />
+
+        <TextView
+            android:id="@+id/tv_class"
+            style="@style/ScheduleItemTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="4dp"
+            android:text="6-2" />
+
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_class"
-        style="@style/ScheduleItemTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="4dp"
-        android:text="6-2" />
+        android:text="김교샤"/>
+
 
 </LinearLayout>

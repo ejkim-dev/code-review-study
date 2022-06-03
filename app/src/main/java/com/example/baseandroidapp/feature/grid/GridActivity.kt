@@ -41,7 +41,7 @@ class GridActivity : ViewBindingActivity<ActivityGridBinding>() {
         ScheduleView(grade = 5, ban = 1, gyosi = 4, week = "Mon", weekDay = Calendar.MONDAY),
         ScheduleView(grade = 6, ban = 2, gyosi = 5, week = "Mon", weekDay = Calendar.MONDAY),
         ScheduleView(grade = 2, ban = 6, gyosi = 3, week = "Mon", weekDay = Calendar.FRIDAY),
-        ScheduleView(grade = 5, ban = 4, gyosi = 4, week = "Mon", weekDay = Calendar.TUESDAY),
+        ScheduleView(grade = 5, ban = 4, gyosi = 4, week = "Mon", weekDay = Calendar.MONDAY),
         ScheduleView(grade = 5, ban = 1, gyosi = 6, week = "Mon", weekDay = Calendar.WEDNESDAY),
     )
 
