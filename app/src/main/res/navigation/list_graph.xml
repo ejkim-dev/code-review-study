@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/list_dest"
-        android:name="com.example.baseandroidapp.sample.navigation.ListFragment"
+        android:name="com.devhoony.baseandroidapp.sample.navigation.ListFragment"
         tools:layout="@layout/fragment_profile">
 
         <argument

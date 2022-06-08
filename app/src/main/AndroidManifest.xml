@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.baseandroidapp">
+    package="com.devhoony.baseandroidapp">
 
     <!--    <uses-feature-->
     <!--        android:name="android.software.leanback"-->
@@ -15,7 +15,7 @@
 
 
     <application
-        android:name=".AndroidApplication"
+        android:name="com.devhoony.baseandroidapp.AndroidApplication"
         android:allowBackup="true"
         android:banner="@mipmap/ic_launcher"
         android:icon="@mipmap/ic_launcher"
@@ -26,61 +26,33 @@
         android:theme="@style/Theme.BaseAndroidApp">
 
 
-        <activity
-            android:name=".feature.route.RouteActivity"
-            android:exported="true"
-            android:noHistory="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".feature.login.LoginActivity" />
-        <activity android:name=".feature.setting.SettingsActivity" />
-        <activity android:name=".feature.insert.InsertTableActivity" />
-        <activity android:name=".feature.grid.GridActivity" />
-
-
-        <activity
-            android:name=".feature.main.MainActivity"
-            android:exported="true"
-            android:noHistory="true">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
-        </activity>
-
-
         <!--        sample code -->
         <activity
-            android:name=".util.navigator.RouteActivity"
+            android:name="com.devhoony.baseandroidapp.util.navigator.RouteActivity"
             android:exported="true"
             android:noHistory="true">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+                        <intent-filter>
+                            <action android:name="android.intent.action.MAIN" />
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+                            <category android:name="android.intent.category.LAUNCHER" />
+                        </intent-filter>
         </activity>
 
         <activity
-            android:name=".sample.navigation.NavigationActivity"
+            android:name="com.devhoony.baseandroidapp.sample.navigation.NavigationActivity"
             android:exported="false" />
         <activity
-            android:name=".vod.VodActivity"
+            android:name="com.devhoony.baseandroidapp.vod.VodActivity"
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:exported="true" />
-        <activity android:name=".vod.VodDetailActivity" />
-        <activity android:name=".sample.motionlayout.YoutubeCloneActivity" />
+        <activity android:name="com.devhoony.baseandroidapp.vod.VodDetailActivity" />
+        <activity android:name="com.devhoony.baseandroidapp.sample.motionlayout.YoutubeCloneActivity" />
 
         <activity
-            android:name=".sample.exoplayer.ExoplayerActivity"
+            android:name="com.devhoony.baseandroidapp.sample.exoplayer.ExoplayerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
-            android:name=".sample.pip.PipActivity"
+            android:name="com.devhoony.baseandroidapp.sample.pip.PipActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:launchMode="singleTask"
             android:supportsPictureInPicture="true"

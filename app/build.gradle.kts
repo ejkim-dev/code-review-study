@@ -11,7 +11,7 @@ android {
     compileSdk = 31
 
     defaultConfig {
-        applicationId = "com.devhoony.gyodam"
+        applicationId = "com.devhoony.github.app"
         minSdk = 21
         targetSdk = 31
         versionCode = 1
@@ -50,10 +50,9 @@ dependencies {
     implementation(Dependencies.KTX.CORE)
     implementation(Dependencies.Libraries.appCompat)
     implementation(Dependencies.Libraries.material)
-    implementation(Dependencies.Libraries.appCompat)
-    implementation(Dependencies.Libraries.material)
     implementation(Dependencies.Libraries.constraintLayout)
     implementation(Dependencies.Libraries.legacySupport)
+    implementation(Dependencies.Libraries.lifecycleExtensions)
     testImplementation(Dependencies.Test.JUNIT)
     androidTestImplementation(Dependencies.AndroidTest.JUNIT)
     androidTestImplementation(Dependencies.AndroidTest.ESPRESSO_CORE)

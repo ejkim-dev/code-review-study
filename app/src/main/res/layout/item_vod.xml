@@ -6,7 +6,7 @@
     <data>
         <variable
             name="data"
-            type="com.example.baseandroidapp.vod.VodView" />
+            type="com.devhoony.baseandroidapp.vod.VodView" />
     </data>
 
     <LinearLayout

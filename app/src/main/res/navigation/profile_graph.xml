@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/profile_dest"
-        android:name="com.example.baseandroidapp.sample.navigation.ProfileFragment"
+        android:name="com.devhoony.baseandroidapp.sample.navigation.ProfileFragment"
         tools:layout="@layout/fragment_profile">
 
         <argument
