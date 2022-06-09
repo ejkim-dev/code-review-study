@@ -1,6 +1,8 @@
 package com.devhoony.data.di
 
+import com.devhoony.data.repositoryimpl.GithubRepositoryImpl
 import com.devhoony.data.repositoryimpl.VodRepositoryImpl
+import com.devhoony.domain.repository.GithubRepository
 import com.devhoony.domain.repository.VodRepository
 import dagger.Module
 import dagger.Provides
@@ -15,7 +17,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class ApplicationModule {
-    companion object{
+    companion object {
         const val BASE_URL = "https://api.github.com" //github api
     }
 
@@ -32,10 +34,10 @@ class ApplicationModule {
     private fun createClient(): OkHttpClient {
         val okHttpClientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
 //        if (BuildConfig.DEBUG) {
-            val loggingInterceptor =
-                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-//                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
-            okHttpClientBuilder.addInterceptor(loggingInterceptor)
+        val loggingInterceptor =
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+//        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
+        okHttpClientBuilder.addInterceptor(loggingInterceptor)
 //        }
         return okHttpClientBuilder.build()
     }
@@ -43,4 +45,8 @@ class ApplicationModule {
     @Provides
     @Singleton
     fun provideVodRepository(dataSource: VodRepositoryImpl): VodRepository = dataSource
+
+    @Provides
+    @Singleton
+    fun provideGithubRepository(dataSource: GithubRepositoryImpl): GithubRepository = dataSource
 }

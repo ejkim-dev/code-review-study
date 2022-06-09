@@ -26,16 +26,35 @@
         android:theme="@style/Theme.BaseAndroidApp">
 
 
+        <activity
+            android:name=".feature.main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="test.com" />
+                <data android:scheme="testapp" />
+            </intent-filter>
+        </activity>
+
         <!--        sample code -->
         <activity
             android:name="com.devhoony.baseandroidapp.util.navigator.RouteActivity"
             android:exported="true"
             android:noHistory="true">
-                        <intent-filter>
-                            <action android:name="android.intent.action.MAIN" />
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                            <category android:name="android.intent.category.LAUNCHER" />
-                        </intent-filter>
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
 
         <activity

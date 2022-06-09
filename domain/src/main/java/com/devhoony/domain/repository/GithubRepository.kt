@@ -12,6 +12,4 @@ interface GithubRepository {
     suspend fun getUser(userName: String): Either<Failure, GithubUser>
     suspend fun getRepos(userName: String): Either<Failure, List<GithubRepo>>
 
-//    fun getVodDefer(request: VodRequest): Deferred<Vod>
-//    fun getVodListDefer(): Deferred<List<Vod>>
 }

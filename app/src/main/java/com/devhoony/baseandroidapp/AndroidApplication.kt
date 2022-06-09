@@ -16,10 +16,8 @@ class AndroidApplication : Application() {
         var exoPlayerCacheSize: Long = 90 * 1024 * 1024L
 
 
-        // app static variable
-        const val GYOSI_COUNT = 6
-        const val DAY_COUNT = 5
-        const val BAN_COUNT = 10
+        // app static variable ...
+
     }
 
     override fun onCreate() {
