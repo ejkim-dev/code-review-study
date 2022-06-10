@@ -25,7 +25,7 @@
 
 | Week | 스터디 날짜 | 시간 | 진행 | 커리큘럼 내용 | 발표자 |
 | ------ | -- | -- | -- | ----------- | ----- |
-| 1주차 | 2022.06.01 | 20:30~21:20 | ☑️ | OT 소개 및 스터디 방향성 정하기 | <a href="https://github.com/ejkim-dev/code-review-study/tree/ejkim"> <img src="https://contrib.rocks/image?repo=ejkim-dev/ejkim-dev"  width="20" /> </a> |
+| 1주차 | 2022.06.01 | 20:30 ~ 21:20 | ☑️ | OT 소개 및 스터디 방향성 정하기 | <a href="https://github.com/ejkim-dev/code-review-study/tree/ejkim"> <img src="https://contrib.rocks/image?repo=ejkim-dev/ejkim-dev"  width="20" /> </a> |
 | 2주차 | 2022.06.09 | 19:00 ~ 21:00 | ☑️ | Clean Architecture, MVVM, RX 프로젝트에 적용 | <a href="https://github.com/HaejungAhn/HaejungAhn/graphs/contributors"> <img src="https://contrib.rocks/image?repo=HaejungAhn/HaejungAhn"  width="20" /> </a> |
 | 3주차 | 2022.06.15 | 19:00 ~ | | 통신, SharedPreferences(AOS), UserDefaults(iOS) | <a href="https://github.com/ejkim-dev/code-review-study/tree/Android-mjin"> <img src="https://avatars.githubusercontent.com/u/79712757?v=4"  width="20" /> </a> |
 | 4주차 | 2022.06.22 | | | 화면 만들기 및 테스트 코드 작성 |
