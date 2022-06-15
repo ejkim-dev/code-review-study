@@ -3,6 +3,7 @@ package com.devhoony.data.repositoryimpl
 
 import android.util.Log
 import com.devhoony.data.GithubUserEntity
+import com.devhoony.data.mapper.GithubMapper
 import com.devhoony.data.remote.NetworkHandler
 import com.devhoony.data.remote.github.GithubService
 import com.devhoony.domain.entity.GithubRepo
@@ -18,8 +19,9 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class GithubRepositoryImpl @Inject constructor(
+    private val mapper: GithubMapper,
     private val githubService: GithubService,
-    private val networkHandler: NetworkHandler
+    private val networkHandler: NetworkHandler,
 ) : GithubRepository {
 
     private fun <T, R> request(
@@ -44,9 +46,10 @@ class GithubRepositoryImpl @Inject constructor(
                 githubService.getUserInfo(userName),
                 {
                     Log.e("sdf", it.toString())
-                    it.toGithubUser()
+                    mapper.transform(it)
+//                    mapper::transform(it)
                 },
-                GithubUserEntity.empty
+                GithubUserEntity()
             )
             false -> Left(NetworkConnection)
         }
@@ -56,7 +59,8 @@ class GithubRepositoryImpl @Inject constructor(
         return when (networkHandler.isNetworkAvailable()) {
             true -> request(
                 githubService.getUserRepoInfo(userName),
-                { it.map { entity -> entity.toGithubRepo() } },
+//                { list -> list.map { mapper.transform(it) } },
+                { mapper.transform(it) },
                 emptyList()
             )
             false -> Left(NetworkConnection)

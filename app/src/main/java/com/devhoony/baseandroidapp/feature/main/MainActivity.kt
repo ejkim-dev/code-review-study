@@ -43,13 +43,16 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
 
         val data = intent.data
         DLog.e("data : $data")
-        data?.let {
-            val name = it.toString().replace("testapp://test.com/", "")
+        if (data != null) {
+            val name = data.toString().replace("testapp://test.com/", "")
             DLog.e("userName : $name")
             if (!name.isNullOrEmpty()) {
                 viewModel.loadUserData(name)
                 viewModel.loadGithubRepos(name)
             }
+        } else {
+            viewModel.loadUserData("dev-hoony")
+            viewModel.loadGithubRepos("dev-hoony")
         }
 
     }
