@@ -1,4 +1,4 @@
-package com.example.codereviewstudy.network
+package com.example.codereviewstudy.data.network
 
 object NetWorkConstant {
     const val CONNECT_TIMEOUT = 30L
