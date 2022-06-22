@@ -7,7 +7,7 @@ import com.example.codereviewstudy.presentation.base.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class InputUserGitNameFragment : BindingFragment<InputUserGitNameFragmentBinding>() {
+class InputUserGitNameFragment : BindingFragment<InputUserGitNameFragmentBinding, InputUserGitNameViewModel >() {
 
     companion object {
         fun newInstance() = InputUserGitNameFragment()
@@ -17,10 +17,13 @@ class InputUserGitNameFragment : BindingFragment<InputUserGitNameFragmentBinding
         get() = InputUserGitNameFragmentBinding::inflate
 
 
-    private lateinit var userGitNameViewModel: InputUserGitNameViewModel
-
-
     override fun initView() {
+        binding.apply {
+            btnNextOk.setOnClickListener {
+                val username = etUserName.text.toString()
+                viewmodel.getUserInfo(username)
+            }
+        }
 
     }
 

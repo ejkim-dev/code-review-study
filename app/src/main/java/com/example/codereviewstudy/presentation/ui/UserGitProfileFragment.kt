@@ -7,13 +7,13 @@ import com.example.codereviewstudy.presentation.base.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class UserGitProfileFragment : BindingFragment<UserGitProfileFragmentBinding>() {
+class UserGitProfileFragment :
+    BindingFragment<UserGitProfileFragmentBinding, UserGitProfileViewModel>() {
 
     companion object {
         fun newInstance() = UserGitProfileFragment()
     }
 
-    private lateinit var viewModel: UserGitProfileViewModel
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> UserGitProfileFragmentBinding
         get() = UserGitProfileFragmentBinding::inflate

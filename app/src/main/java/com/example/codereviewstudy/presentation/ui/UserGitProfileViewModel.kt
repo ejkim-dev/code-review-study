@@ -1,7 +1,9 @@
 package com.example.codereviewstudy.presentation.ui
 
-import androidx.lifecycle.ViewModel
+import com.example.codereviewstudy.presentation.base.BaseViewModel
+import javax.inject.Inject
 
-class UserGitProfileViewModel : ViewModel() {
+
+class UserGitProfileViewModel @Inject constructor(): BaseViewModel() {
     // TODO: Implement the ViewModel
 }
