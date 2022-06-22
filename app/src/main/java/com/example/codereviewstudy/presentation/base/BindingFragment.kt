@@ -10,11 +10,15 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.example.codereviewstudy.presentation.ui.MainActivity
+import javax.inject.Inject
 
-abstract class BindingFragment<B : ViewBinding> : Fragment() {
+abstract class BindingFragment<B : ViewBinding, ViewModel : BaseViewModel> : Fragment() {
 
     lateinit var binding : B
     abstract val bindingInflater : (LayoutInflater,ViewGroup?, Boolean) -> B
+
+    @Inject
+    lateinit var viewmodel: ViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
