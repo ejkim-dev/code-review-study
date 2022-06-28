@@ -19,7 +19,6 @@ class MainViewModel @Inject constructor(
     private val getGithubReposUseCase: GetGithubReposUseCase
 ) : BaseViewModel() {
 
-
     private val _userData: MutableLiveData<GithubUserView> = MutableLiveData()
     val userData: LiveData<GithubUserView> = _userData
 

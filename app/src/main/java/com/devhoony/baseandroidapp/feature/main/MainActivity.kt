@@ -62,7 +62,7 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
     private fun initObserver() {
 
         viewModel.githubZipData.observe(this){
-            Toast.makeText(this@MainActivity, "$it", Toast.LENGTH_SHORT).show()
+            DLog.e("event observe")
             addData(it)
         }
 
