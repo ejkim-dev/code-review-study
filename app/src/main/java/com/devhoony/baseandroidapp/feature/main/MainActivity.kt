@@ -7,15 +7,10 @@ import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.devhoony.baseandroidapp.databinding.ActivityMainBinding
 import com.devhoony.baseandroidapp.util.DLog
 import com.devhoony.baseandroidapp.util.base.ViewBindingActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.lang.IndexOutOfBoundsException
 
 @AndroidEntryPoint
 class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
@@ -65,30 +60,36 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
     }
 
     private fun initObserver() {
-        viewModel.userData.observe(this) {
-            DLog.e(it.toString())
-            try {
-                githubInfoList[0] = GithubInfoView(userView = it)
-            } catch (e: IndexOutOfBoundsException) {
-                githubInfoList.add(GithubInfoView(userView = it))
-            }
-            addData()
+
+        viewModel.githubZipData.observe(this){
+            Toast.makeText(this@MainActivity, "$it", Toast.LENGTH_SHORT).show()
+            addData(it)
         }
 
-        viewModel.reposData.observe(this) { list ->
-            list.map {
-                githubInfoList.add(GithubInfoView(repoView = it))
-            }
-            addData()
-        }
+//        viewModel.userData.observe(this) {
+//            DLog.e(it.toString())
+//            try {
+//                githubInfoList[0] = GithubInfoView(userView = it)
+//            } catch (e: IndexOutOfBoundsException) {
+//                githubInfoList.add(GithubInfoView(userView = it))
+//            }
+//            addData()
+//        }
+//
+//        viewModel.reposData.observe(this) { list ->
+//            list.map {
+//                githubInfoList.add(GithubInfoView(repoView = it))
+//            }
+//            addData()
+//        }
 
         viewModel.failure.observe(this) {
             Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun addData() {
-        githubAdapter.addList(githubInfoList)
+    private fun addData(list: ArrayList<GithubInfoView>) {
+        githubAdapter.addList(list)
     }
 
 }
