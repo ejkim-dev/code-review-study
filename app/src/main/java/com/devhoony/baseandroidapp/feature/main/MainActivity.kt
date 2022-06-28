@@ -44,8 +44,8 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
                 viewModel.loadGithubRepos(name)
             }
         } else {
-            viewModel.loadUserData("ejkim-dev")
-            viewModel.loadGithubRepos("ejkim-dev")
+            viewModel.loadUserData("dev-hoony")
+            viewModel.loadGithubRepos("dev-hoony")
         }
     }
 
