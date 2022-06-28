@@ -60,7 +60,8 @@ class MainViewModel @Inject constructor(
     }
 
     private fun handleRepoData(list: List<GithubRepo>) {
-        _reposData.value = list.map { model ->
+        val sortList = list.sortedByDescending { it.starCount }
+        _reposData.value = sortList.map { model ->
             GithubRepoView(
                 id = model.id,
                 title = model.title,
