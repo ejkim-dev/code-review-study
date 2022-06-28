@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.devhoony.baseandroidapp.databinding.ActivityMainBinding
 import com.devhoony.baseandroidapp.util.DLog
 import com.devhoony.baseandroidapp.util.base.ViewBindingActivity
@@ -13,11 +15,15 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.lang.IndexOutOfBoundsException
 
 @AndroidEntryPoint
 class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
 
     private val viewModel: MainViewModel by viewModels()
+
+    private val githubAdapter: GithubAdapter = GithubAdapter()
+    private val githubInfoList: ArrayList<GithubInfoView> = ArrayList<GithubInfoView>()
 
     companion object {
         fun callingIntent(context: Context) =
@@ -30,17 +36,10 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initView()
         initObserver()
 
-//        val userName = "dev-hoony"
-//        CoroutineScope(Dispatchers.IO).launch {
-//            viewModel.loadUserData(userName)
-//            viewModel.loadGithubRepos(userName)
-//        }
-
-
         DLog.e("intent : $intent")
-
         val data = intent.data
         DLog.e("data : $data")
         if (data != null) {
@@ -51,25 +50,45 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
                 viewModel.loadGithubRepos(name)
             }
         } else {
-            viewModel.loadUserData("dev-hoony")
-            viewModel.loadGithubRepos("dev-hoony")
+            viewModel.loadUserData("ejkim-dev")
+            viewModel.loadGithubRepos("ejkim-dev")
         }
+    }
 
+    private fun initView() {
+        binding.rvGithubInfo.apply {
+            adapter = githubAdapter
+            layoutManager = LinearLayoutManager(this@MainActivity).apply {
+                orientation = LinearLayoutManager.VERTICAL
+            }
+        }
     }
 
     private fun initObserver() {
         viewModel.userData.observe(this) {
             DLog.e(it.toString())
-            binding.tvUser.text = it.toString()
+            try {
+                githubInfoList[0] = GithubInfoView(userView = it)
+            } catch (e: IndexOutOfBoundsException) {
+                githubInfoList.add(GithubInfoView(userView = it))
+            }
+            addData()
         }
 
-        viewModel.reposData.observe(this) {
-            binding.tvRepos.text = it.toString()
+        viewModel.reposData.observe(this) { list ->
+            list.map {
+                githubInfoList.add(GithubInfoView(repoView = it))
+            }
+            addData()
         }
 
         viewModel.failure.observe(this) {
             Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun addData() {
+        githubAdapter.addList(githubInfoList)
     }
 
 }

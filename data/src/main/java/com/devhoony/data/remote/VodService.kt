@@ -8,10 +8,11 @@ import com.devhoony.data.DefaultResult.SingleResult
 import com.devhoony.data.DefaultResult.PageResult
 import com.devhoony.data.VodDetailEntity
 import com.devhoony.data.VodEntity
+import javax.inject.Named
 
 @Singleton
 class VodService
-@Inject constructor(retrofit: Retrofit) : VodApi {
+@Inject constructor(@Named("second") retrofit: Retrofit) : VodApi {
     private val vodApi by lazy { retrofit.create(VodApi::class.java) }
 
     override suspend fun vod(id: Int): Response<SingleResult<VodDetailEntity>> = vodApi.vod(id)

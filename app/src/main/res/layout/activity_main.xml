@@ -6,18 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/tv_user"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_github_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name" />
-
-
-    <TextView
-        android:id="@+id/tv_repos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="match_parent"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_github_repo"/>
 
 </LinearLayout>

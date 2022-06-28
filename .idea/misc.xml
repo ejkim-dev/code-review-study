@@ -5,6 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/activity_vod.xml" value="0.2203125" />
+        <entry key="app/src/main/res/layout/item_github_repo.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/item_github_user.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/item_vod.xml" value="0.4036458333333333" />
       </map>
     </option>
   </component>

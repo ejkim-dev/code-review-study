@@ -15,6 +15,7 @@ class RouteRecyclerAdapter : RecyclerView.Adapter<RouteRecyclerAdapter.ViewHolde
         Navigator.Destination.Notification,
         Navigator.Destination.Exoplayer,
         Navigator.Destination.Pip,
+        Navigator.Destination.Vod,
     )
 
     var itemClickListener: ((String) -> Unit)? = null

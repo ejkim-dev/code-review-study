@@ -1,5 +1,6 @@
 package com.devhoony.baseandroidapp.vod
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
@@ -18,6 +19,10 @@ class VodActivity : AppCompatActivity() {
     private val vodAdapter = VodAdapter()
 
     lateinit var progressBar: ProgressBar
+
+    companion object {
+        fun callingIntent(context: Context) = Intent(context, VodActivity::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

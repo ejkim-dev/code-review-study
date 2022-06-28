@@ -12,6 +12,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -19,6 +20,8 @@ import javax.inject.Singleton
 class ApplicationModule {
     companion object {
         const val BASE_URL = "https://api.github.com" //github api
+        const val BASE_URL_2 =
+            "http://1mhomedance-api-20f8820449d30e5e.elb.ap-northeast-2.amazonaws.com/api/" //github api
     }
 
     @Provides
@@ -40,6 +43,17 @@ class ApplicationModule {
         okHttpClientBuilder.addInterceptor(loggingInterceptor)
 //        }
         return okHttpClientBuilder.build()
+    }
+
+    @Provides
+    @Singleton
+    @Named("second")
+    fun provideSecondRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL_2)
+            .client(createClient())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
 
     @Provides

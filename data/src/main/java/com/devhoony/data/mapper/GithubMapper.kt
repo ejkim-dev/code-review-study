@@ -29,9 +29,9 @@ class GithubMapper {
     fun transform(model: GithubReposEntity) = with(model) {
         GithubRepo(
             id = id,
-            title = name,
-            description = description,
-            starCount = stargazers_count
+            title = name ?: "",
+            description = description ?: "",
+            starCount = stargazers_count ?: 0
         )
     }
 
