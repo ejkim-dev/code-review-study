@@ -18,7 +18,6 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
     private val viewModel: MainViewModel by viewModels()
 
     private val githubAdapter: GithubAdapter = GithubAdapter()
-    private val githubInfoList: ArrayList<GithubInfoView> = ArrayList<GithubInfoView>()
 
     companion object {
         fun callingIntent(context: Context) =
