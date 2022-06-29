@@ -75,19 +75,49 @@ class MainViewModel @Inject constructor(
     val githubZipData = MediatorLiveData<ArrayList<GithubInfoView>>()
 
     init {
-        githubZipData.addSource(userData) {
-            val list = githubZipData.value ?: ArrayList<GithubInfoView>()
-            try {
-                list[0] = GithubInfoView(userView = it)
-            } catch (e: IndexOutOfBoundsException) {
+        // 1-1 MediatorLiveData
+//        githubZipData.addSource(userData) {
+//            val list = githubZipData.value ?: ArrayList<GithubInfoView>()
+//            try {
+//                list[0] = GithubInfoView(userView = it)
+//            } catch (e: IndexOutOfBoundsException) {
+//                list.add(GithubInfoView(userView = it))
+//            }
+//            githubZipData.value = list
+//        }
+//        githubZipData.addSource(reposData) { repoList ->
+//            val list = githubZipData.value ?: ArrayList<GithubInfoView>()
+//            repoList.map {
+//                list.add(GithubInfoView(repoView = it))
+//            }
+//            githubZipData.value = list
+//        }
+
+        // 1-2 1-1에서 변경 이벤트가 2번 발생하는 문제 수정.
+        // 메소드 내에서 2개의 데이터 변경을 모두 확인하고 최종 데이터를 변경.
+        with(githubZipData) {
+            addSource(userData) {
+                checkGithubInfoData(userData, reposData)
+            }
+            addSource(reposData) {
+                checkGithubInfoData(userData, reposData)
+            }
+        }
+    }
+
+    private fun checkGithubInfoData(
+        userInfo: LiveData<GithubUserView>,
+        repoInfo: LiveData<List<GithubRepoView>>
+    ) {
+        if (userInfo.value != null && repoInfo.value != null) {
+            val list = ArrayList<GithubInfoView>()
+            userInfo.value?.let {
                 list.add(GithubInfoView(userView = it))
             }
-            githubZipData.value = list
-        }
-        githubZipData.addSource(reposData) { repoList ->
-            val list = githubZipData.value ?: ArrayList<GithubInfoView>()
-            repoList.map {
-                list.add(GithubInfoView(repoView = it))
+            repoInfo.value?.let {
+                it.map {
+                    list.add(GithubInfoView(repoView = it))
+                }
             }
             githubZipData.value = list
         }
