@@ -29,7 +29,7 @@
 |2주차|2022.06.09| 19:00~21:00 | ✅ | Clean Architecture, MVVM, RX 프로젝트에 적용 | <a href="https://github.com/HaejungAhn/HaejungAhn/graphs/contributors"> <img src="https://contrib.rocks/image?repo=HaejungAhn/HaejungAhn"  width="20" /> </a> : 클린아키텍처 개념과 아키텍처 패턴과의 차이 |
 |3주차|2022.06.15| 19:00~ | ✅ | 통신, SharedPreferences(AOS), UserDefaults(iOS) | <a href="https://github.com/ejkim-dev/code-review-study/tree/Android-mjin"> <img src="https://contrib.rocks/image?repo=mjini-dev/MiniProject"  width="20" /> </a> : Clean Architecture와 MVVM |
 |4주차|2022.06.22| 19:00~ | ✅ | 통신 : 확장성 있는 코드 관한 생각 | 토론 시간 |
-|5주차|2022.06.29| 19:00~ | | 화면 만들기 및 테스트 코드 작성 | <a href="https://github.com/ejkim-dev/code-review-study/tree/Android-mjin"> <img src="https://contrib.rocks/image?repo=mjini-dev/MiniProject"  width="20" /> </a> : 코루틴, RX 개념
-|6주차|2022.07.06| 19:00~ | | 검색기능 | <a href="https://github.com/ejkim-dev/code-review-study/tree/Android-mjin"> <img src="https://contrib.rocks/image?repo=mjini-dev/MiniProject"  width="20" /> </a> : 클린아키텍처, MVVM, 코루틴, RX에 대한 전반적인 개념
-|7주차|2022.07.13| 19:00~ | | 페이징 처리 |
-|8주차|2022.07.20| 19:00~ | | Deep link로 앱 실행 |
+|5주차|2022.07.06| 19:00~ | ✅ | 화면 만들기 및 테스트 코드 작성 | <a href="https://github.com/ejkim-dev/code-review-study/tree/Android-mjin"> <img src="https://contrib.rocks/image?repo=mjini-dev/MiniProject"  width="20" /> </a> : 코루틴, RX 개념
+|6주차|2022.07.13| 19:00~ | ✅ | 검색기능 | 토론 시간 |
+|7주차|2022.07.20| 19:00~ | | 페이징 처리 |
+|8주차|2022.07.27| 19:00~ | | Deep link로 앱 실행 |
