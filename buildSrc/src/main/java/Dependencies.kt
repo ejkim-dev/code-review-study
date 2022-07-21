@@ -17,6 +17,7 @@ object Dependencies {
     object Test {
         const val JUNIT = "junit:junit:4.13.2"
         const val ANDROID_JUNIT_RUNNER = "AndroidJUnitRunner"
+        const val HILT = "com.google.dagger:hilt-android-testing:${Versions.hilt}"
     }
 
     object AndroidTest {
@@ -25,31 +26,33 @@ object Dependencies {
         const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.4.0"
     }
 
+    object Versions {
+        const val activity = "1.1.0"
+        const val annotations = "1.1.0"
+        const val appCompat = "1.4.1"
+        const val cardView = "1.0.0"
+        const val constraintLayout = "2.1.3"
+        const val coroutine = "1.6.0"
+        const val encryptedSharedPreference = "1.1.0-alpha03"
+        const val exoplayer = "2.17.1"
+        const val firebaseMessaging = "23.0.2"
+        const val firebaseBom = "29.3.0"
+        const val fragment = "1.2.5"
+        const val glide = "4.12.0"
+        const val hilt = "2.40"
+        const val ktx = "1.3.2"
+        const val legacySupport = "1.0.0"
+        const val lifecycle = "2.4.1"
+        const val lifecycleExtensions = "2.1.0"
+        const val material = "1.5.0"
+        const val navigation = "2.4.2"
+        const val okHttpLoggingInterceptor = "4.9.0"
+        const val recyclerView = "1.1.0"
+        const val retrofit = "2.9.0"
+    }
+
     object Libraries {
-        private object Versions {
-            const val activity = "1.1.0"
-            const val annotations = "1.1.0"
-            const val appCompat = "1.4.1"
-            const val cardView = "1.0.0"
-            const val constraintLayout = "2.1.3"
-            const val coroutine = "1.6.0"
-            const val encryptedSharedPreference = "1.1.0-alpha03"
-            const val exoplayer = "2.17.1"
-            const val firebaseMessaging = "23.0.2"
-            const val firebaseBom = "29.3.0"
-            const val fragment = "1.2.5"
-            const val glide = "4.12.0"
-            const val hilt = "2.40"
-            const val ktx = "1.3.2"
-            const val legacySupport = "1.0.0"
-            const val lifecycle = "2.4.1"
-            const val lifecycleExtensions = "2.1.0"
-            const val material = "1.5.0"
-            const val navigation = "2.4.2"
-            const val okHttpLoggingInterceptor = "4.9.0"
-            const val recyclerView = "1.1.0"
-            const val retrofit = "2.9.0"
-        }
+
 
 //            const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Kotlin.standardLibrary}"
 //    const val kotlinCoroutines =
