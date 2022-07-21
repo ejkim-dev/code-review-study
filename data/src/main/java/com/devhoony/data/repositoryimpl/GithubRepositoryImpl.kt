@@ -44,11 +44,7 @@ class GithubRepositoryImpl @Inject constructor(
         return when (networkHandler.isNetworkAvailable()) {
             true -> request(
                 githubService.getUserInfo(userName),
-                {
-                    Log.e("sdf", it.toString())
-                    mapper.transform(it)
-//                    mapper::transform(it)
-                },
+                mapper::transform,
                 GithubUserEntity()
             )
             false -> Left(NetworkConnection)
@@ -60,7 +56,7 @@ class GithubRepositoryImpl @Inject constructor(
             true -> request(
                 githubService.getUserRepoInfo(userName),
 //                { list -> list.map { mapper.transform(it) } },
-                { mapper.transform(it) },
+                mapper::transform,
                 emptyList()
             )
             false -> Left(NetworkConnection)
