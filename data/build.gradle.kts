@@ -51,9 +51,18 @@ dependencies {
     implementation(Dependencies.Libraries.hilt)
     kapt(Dependencies.Libraries.hiltCompiler)
 
+    // hilt test
+    androidTestImplementation(Dependencies.Test.HILT)
+    kaptAndroidTest(Dependencies.Libraries.hiltCompiler)
+
     // Retrofit2
     implementation(Dependencies.Libraries.retrofit)
 
     //okhttp3 logging interceptor
     implementation(Dependencies.Libraries.okHttpLoggingInterceptor)
+
+    // coroutines
+    implementation(Dependencies.Libraries.coroutine)
+
+
 }
