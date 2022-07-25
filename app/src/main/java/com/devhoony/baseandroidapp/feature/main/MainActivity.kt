@@ -6,11 +6,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devhoony.baseandroidapp.databinding.ActivityMainBinding
 import com.devhoony.baseandroidapp.util.DLog
 import com.devhoony.baseandroidapp.util.base.ViewBindingActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
@@ -44,8 +51,11 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
                 viewModel.loadGithubRepos(name)
             }
         } else {
-            viewModel.loadUserData("dev-hoony")
-            viewModel.loadGithubRepos("dev-hoony")
+//            viewModel.loadUserData("dev-hoony")
+//            viewModel.loadGithubRepos("dev-hoony")
+            CoroutineScope(Dispatchers.IO).launch{
+                viewModel.loadDataFlow("dev-hoony")
+            }
         }
     }
 
@@ -60,8 +70,13 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
 
     private fun initObserver() {
 
-        viewModel.githubZipData.observe(this){
+        viewModel.githubZipData.observe(this) {
             DLog.e("event observe")
+            addData(it)
+        }
+
+        viewModel.githubZipDataFlow.observe(this){
+            DLog.e("flow event observe")
             addData(it)
         }
 
@@ -87,7 +102,7 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
         }
     }
 
-    private fun addData(list: ArrayList<GithubInfoView>) {
+    private fun addData(list: List<GithubInfoView>) {
         githubAdapter.addList(list)
     }
 

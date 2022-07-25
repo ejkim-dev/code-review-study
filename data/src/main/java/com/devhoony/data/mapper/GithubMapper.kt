@@ -4,6 +4,7 @@ import com.devhoony.data.GithubReposEntity
 import com.devhoony.data.GithubUserEntity
 import com.devhoony.domain.entity.GithubRepo
 import com.devhoony.domain.entity.GithubUser
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Singleton
 
 @Singleton
@@ -41,5 +42,13 @@ class GithubMapper {
         }
     }
 
+
+//    fun transform(model: Flow<GithubUserEntity>): GithubUser = with(model) {
+//        return GithubUser(
+//            id = id,
+//            name = login,
+//            imageUrl = avatar_url
+//        )
+//    }
 
 }

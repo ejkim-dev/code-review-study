@@ -1,22 +1,29 @@
 package com.devhoony.baseandroidapp.feature.main
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.devhoony.baseandroidapp.mapper.GithubViewMapper
+import com.devhoony.baseandroidapp.util.DLog
 import com.devhoony.baseandroidapp.util.base.BaseViewModel
 import com.devhoony.domain.entity.GithubRepo
 import com.devhoony.domain.entity.GithubUser
 import com.devhoony.domain.usecase.github.GetGithubReposUseCase
+import com.devhoony.domain.usecase.github.GetGithubUserFlowUseCase
 import com.devhoony.domain.usecase.github.GetGithubUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import java.lang.IndexOutOfBoundsException
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
+    private val mapper: GithubViewMapper,
     private val getGithubUserUseCase: GetGithubUserUseCase,
-    private val getGithubReposUseCase: GetGithubReposUseCase
+    private val getGithubReposUseCase: GetGithubReposUseCase,
+    private val getGithubUserFlowUseCase: GetGithubUserFlowUseCase,
 ) : BaseViewModel() {
 
     private val _userData: MutableLiveData<GithubUserView> = MutableLiveData()
@@ -121,6 +128,102 @@ class MainViewModel @Inject constructor(
             }
             githubZipData.value = list
         }
+    }
+
+
+    //
+//    val githubZipLiveData: LiveData<ArrayList<GithubInfoView>> get() = _githubZipFlow.asLiveData()
+//    var githubZipLiveData: LiveData<ArrayList<GithubInfoView>>
+//    private val _githubZipLiveData: MutableLiveData<List<GithubInfoView>> = MutableLiveData()
+//    val githubZipLiveData: LiveData<List<GithubInfoView>> = _githubZipLiveData
+    private var _githubZipFlow: Flow<List<GithubInfoView>> = flow<List<GithubInfoView>> { }
+
+    //    val githubZipDataFlow: LiveData<List<GithubInfoView>> get() = _githubZipFlow.asLiveData()
+    private val _githubZipLiveData: MutableLiveData<List<GithubInfoView>> = MutableLiveData()
+    var githubZipDataFlow: LiveData<List<GithubInfoView>> = _githubZipLiveData
+
+    suspend fun loadDataFlow(userName: String) {
+//        viewModelScope.launch {
+//            delay(2000)
+//            DLog.e("launch in viewmodel scope")
+//            getGithubUserFlowUseCase.run(userName)
+//                .catch {
+//                    DLog.e("catch : $this")
+//                }.collect {
+//                    DLog.e("collect : $it")
+//                }
+//        }
+
+
+        // parallel test
+        viewModelScope.launch {
+            getGithubUserFlowUseCase.runInfos(userName).collect {
+                DLog.e("flow event collect : $it")
+                _githubZipLiveData.postValue(it.map {
+                    if (it.user != null) {
+                        GithubInfoView(userView = mapper.transform(it.user!!))
+                    } else {
+                        GithubInfoView(repoView = mapper.transform(it.repo!!))
+                    }
+                })
+            }
+        }
+
+//        val userFlow = getGithubUserFlowUseCase.run(userName)
+//        val repoFlow = getGithubUserFlowUseCase.runRepo(userName)
+//
+//        DLog.e("userFlow : $userFlow")
+//        DLog.e("repoFlow : $repoFlow")
+//
+//        _githubZipFlow = userFlow.zip(repoFlow) { user, repos ->
+//            val list = ArrayList<GithubInfoView>()
+//
+//            val userView =
+//                GithubUserView(id = user.id, name = user.name, profileUrl = user.imageUrl)
+//            list.add(GithubInfoView(userView = userView))
+//
+//            repos.map { model ->
+//                val repoView = GithubRepoView(
+//                    id = model.id,
+//                    title = model.title,
+//                    description = model.description,
+//                    startCount = model.starCount
+//                )
+//                list.add(GithubInfoView(repoView = repoView))
+//            }
+//            DLog.e("list : $list")
+//            list
+//        }.flowOn(Dispatchers.IO)
+//
+//        githubZipDataFlow = _githubZipFlow.asLiveData()
+
+
+//    _githubZipFlow = flow
+//    {
+//
+//    }
+//        viewModelScope.launch {
+//            flow {
+//
+//            }
+//
+//        }
+
+//        val githubFlow = flow<Unit> {
+//            emit(loadUserData("dev-hoony"))
+//            emit(loadGithubRepos("dev-hoony"))
+//        }
+//
+//        CoroutineScope(Dispatchers.IO).launch {
+//            githubFlow.flatMapMerge {
+//                flow {
+//                    emit(this)
+//                }
+//            }.collect {
+//
+//            }
+//        }
+
     }
 
 

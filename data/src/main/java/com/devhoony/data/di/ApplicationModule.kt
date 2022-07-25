@@ -8,10 +8,14 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.ConnectionPool
 import okhttp3.OkHttpClient
+import okhttp3.Protocol
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -31,11 +35,16 @@ class ApplicationModule {
             .baseUrl(BASE_URL)
             .client(createClient())
             .addConverterFactory(GsonConverterFactory.create())
+//            .addCallAdapterFactory(CoroutineCallAdapterFactory.Companion.create())
             .build()
     }
 
     private fun createClient(): OkHttpClient {
         val okHttpClientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
+        okHttpClientBuilder
+            .connectionPool(ConnectionPool(0, 1, TimeUnit.NANOSECONDS))
+            .protocols(Collections.singletonList(Protocol.HTTP_1_1))
+
 //        if (BuildConfig.DEBUG) {
         val loggingInterceptor =
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

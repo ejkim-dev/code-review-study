@@ -95,4 +95,7 @@ dependencies {
     androidTestImplementation(Dependencies.Libraries.navigationTest)
     implementation(Dependencies.Libraries.navigationJetpackCompose)
 
+    // LiveData
+    implementation(Dependencies.Libraries.liveData)
+
 }
